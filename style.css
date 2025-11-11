@@ -520,3 +520,393 @@ body {
   height: auto;
   display: block;
 }
+/* ===== Pricing Section (InginiaOS style) ===== */
+:root {
+  --bg: #030303;
+  --panel: rgba(6, 6, 6, 0.35);
+  --green: #9AF251;
+  --green-soft: rgba(154, 242, 81, 0.16);
+  --line: rgba(154, 242, 81, 0.28);
+  --text: #f5f5f5;
+  --muted: #9ea09f;
+}
+
+.pricing-section {
+  padding: 80px 16px 100px;
+  background: radial-gradient(circle at top, rgba(154,242,81,0.08), rgba(3,3,3,1) 60%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.pricing-section .h2-grad {
+  font-size: clamp(1.9rem, 3vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+/* Tabs */
+.pricing-tabs {
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 999px;
+  padding: 6px;
+}
+
+.pricing-tabs .tab {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  padding: 8px 22px;
+  border-radius: 999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.15s ease;
+  font-size: 0.92rem;
+}
+
+.pricing-tabs .tab.active {
+  background: rgba(154,242,81,0.14);
+  border: 1px solid rgba(154,242,81,0.35);
+  color: var(--text);
+  box-shadow: 0 10px 30px rgba(154,242,81,0.15);
+}
+
+.tab-content {
+  display: none;
+  width: min(1040px, 100%);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Main card */
+.pricing-card-modern.inginia-card {
+  background: linear-gradient(165deg, rgba(10,10,10,0.45) 0%, rgba(3,3,3,0.15) 100%);
+  border: 1px solid rgba(154,242,81,0.28);
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  padding: 26px 26px 28px;
+  width: min(650px, 100%);
+  margin-inline: auto;
+  box-shadow: 0 12px 46px rgba(0,0,0,0.35);
+}
+
+.pricing-card-modern .card-header {
+  margin-bottom: 20px;
+}
+
+.pricing-card-modern .eyebrow {
+  font-size: 0.78rem;
+  color: var(--green);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.pricing-card-modern .plan-title {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.pricing-card-modern .plan-price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  margin-bottom: 6px;
+}
+
+.pricing-card-modern .plan-price .per {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 6px;
+}
+
+.pricing-card-modern .sub-text {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Features list */
+.features-list {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.feature-item h4 {
+  font-size: 0.94rem;
+  margin-bottom: 2px;
+}
+
+.feature-item p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Actions */
+.pricing-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #020202;
+  padding: 10px 20px 11px;
+  box-shadow: 0 14px 25px rgba(154,242,81,0.35);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.01);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 10px 16px 11px;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.035);
+}
+
+/* Addons grid */
+.addons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.addon-card {
+  background: rgba(5,5,5,0.28);
+  border: 1px solid rgba(255,255,255,0.02);
+  border-radius: 16px;
+  padding: 18px 16px 18px;
+  backdrop-filter: blur(10px);
+}
+
+.addon-card h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.addon-card .price {
+  color: var(--green);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.addon-card p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.addon-card button.select-addon {
+  margin-top: 10px;
+  width: 100%;
+  background: rgba(154,242,81,0.12);
+  border: 1px solid rgba(154,242,81,0.25);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 7px 12px 8px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.addon-card button.select-addon.selected {
+  background: rgba(154,242,81,0.35);
+  border-color: rgba(154,242,81,0.7);
+  color: #020202;
+}
+
+/* Bottom CTA on addons */
+#requestQuote {
+  background: rgba(154,242,81,0.14);
+  border: 1px solid rgba(154,242,81,0.4);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 10px 18px 11px;
+}
+
+/* Responsive */
+@media (max-width: 720px){
+  .pricing-card-modern.inginia-card {
+    width: 100%;
+  }
+  .pricing-actions {
+    flex-direction: column;
+  }
+  .pricing-tabs {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .addons-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* === OVERRIDE : Green Glow Version for Pricing Card === */
+
+.pricing-card-modern.inginia-card {
+  background: radial-gradient(circle at 30% top,
+    rgba(154, 242, 81, 0.28) 0%,
+    rgba(20, 40, 15, 0.9) 55%,
+    rgba(5, 10, 5, 0.95) 100%);
+  border: 1px solid rgba(154, 242, 81, 0.35);
+  box-shadow: 0 0 40px rgba(154, 242, 81, 0.25);
+  backdrop-filter: blur(20px);
+  transition: all 0.25s ease;
+}
+
+.pricing-card-modern.inginia-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 55px rgba(154, 242, 81, 0.4);
+}
+
+/* ปุ่มหลัก – glow เขียว */
+.pricing-card-modern.inginia-card .btn-primary {
+  background: linear-gradient(180deg, #9AF251 0%, #6ddc2f 100%);
+  color: #041804;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(154, 242, 81, 0.55);
+}
+.pricing-card-modern.inginia-card .btn-primary:hover {
+  box-shadow: 0 0 28px rgba(154, 242, 81, 0.75);
+  transform: translateY(-1px);
+}
+
+/* ปุ่มรอง – ดำโปร่ง มีขอบเขียวอ่อน */
+.pricing-card-modern.inginia-card .btn-secondary {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(154, 242, 81, 0.35);
+  color: #ffffff;
+  font-weight: 500;
+}
+.pricing-card-modern.inginia-card .btn-secondary:hover {
+  background: rgba(154, 242, 81, 0.12);
+}
+
+/* ปรับหัวข้อย่อยให้ contrast ขึ้น */
+.pricing-card-modern.inginia-card .eyebrow {
+  color: #b6ffb6;
+  text-transform: uppercase;
+}
+.pricing-card-modern.inginia-card .plan-title {
+  color: #fff;
+}
+.pricing-card-modern.inginia-card .plan-price {
+  color: #eaffea;
+}
+.pricing-card-modern.inginia-card .sub-text {
+  color: rgba(255,255,255,0.7);
+}
+
+/* ปรับ border-tab glow */
+.pricing-tabs .tab.active {
+  background: linear-gradient(145deg, rgba(154,242,81,0.25), rgba(154,242,81,0.15));
+  box-shadow: 0 0 16px rgba(154,242,81,0.4);
+  color: #fff;
+}
+
+/* เสริม transition ให้นุ่ม */
+.btn-primary,
+.btn-secondary,
+.pricing-card-modern.inginia-card {
+  transition: all 0.25s ease;
+}
+/* กล่องหลัก */
+.setup-note-box {
+  width: 100%;
+  background: rgba(22, 28, 35, 0.9);
+  border: 1.5px solid #3fc3ff;
+  border-left: 4px solid #3fc3ff;
+  border-radius: 12px;
+  padding: 22px 26px 20px;
+  margin: 28px auto 0;
+  max-width: 720px;
+  text-align: left;
+}
+
+/* หัวเรื่องให้เด่น */
+.setup-note-box .note-content h4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(63, 195, 255, 0.15);
+  border: 1px solid rgba(63, 195, 255, 0.4);
+  color: #e8f9ff;
+  padding: 6px 14px 5px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* ย่อหน้าแรก = ทำให้เหมือนบล็อกอธิบายหลัก */
+.setup-note-box .note-content p:nth-of-type(1) {
+  background: rgba(4, 7, 10, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  padding: 10px 12px 9px;
+  line-height: 1.55;
+  color: #f4fdff;
+  margin-bottom: 10px;
+}
+
+/* ย่อหน้าที่สอง = โซน benefit/asset ให้ดึงตา */
+.setup-note-box .note-content p:nth-of-type(2) {
+  background: rgba(20, 116, 158, 0.12);
+  border-left: 3px solid rgba(95, 214, 255, 0.7);
+  border-radius: 8px;
+  padding: 8px 12px 8px 14px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* ย่อหน้าสุดท้าย = ข้อสรุป สั้นเบา */
+.setup-note-box .note-content p:last-of-type {
+  font-size: 0.78rem;
+  opacity: 0.7;
+  margin-top: 6px;
+}
+
+/* เน้นคำที่เป็น value */
+.setup-note-box .note-content strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* จุดนำสายตาเล็กๆ ด้านหน้าประโยคในบล็อกที่สอง */
+.setup-note-box .note-content p:nth-of-type(2)::before {
+  content: "•";
+  color: #59d4ff;
+  margin-right: 6px;
+  font-weight: 700;
+}
