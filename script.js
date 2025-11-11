@@ -13,7 +13,7 @@ let inLiff = false;
 
 /* ---------- LIFF (safe init) ---------- */
 function initLIFF(){
-  const LIFF_ID = "2007908663-NawZjDxL";
+  const LIFF_ID = "2007908663-lMDAab9y";
   try{
     if (window.liff && typeof liff.init === "function"){
       liff.init({ liffId: LIFF_ID }).then(() => {
