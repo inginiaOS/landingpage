@@ -910,3 +910,510 @@ body {
   margin-right: 6px;
   font-weight: 700;
 }
+/* === FIX: make DB list horizontally scrollable (override old grid styles) === */
+
+/* ตัวครอบหลักห้ามบังการสกรอลล์ของลูก */
+.inginia-db,
+.inginia-db .page {
+  overflow: visible !important;
+}
+
+/* ถ้าเคยกำหนดให้ .db-collapsed ใช้ grid/overflow ซ่อน → บังคับเป็น flex แนวนอน */
+.inginia-db .grid,
+.inginia-db .grid.db-collapsed {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 16px !important;
+
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch !important;
+  scroll-snap-type: x mandatory !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  /* เผื่อสไตล์เดิมใส่ white-space หรืออะไรแปลก ๆ */
+  white-space: normal !important;
+
+  /* ทำให้ลากนิ้วได้ลื่นบน iOS/ทัชแพด */
+  touch-action: pan-x !important;
+  overscroll-behavior-x: contain !important;
+
+  padding: 8px 12px 16px !important;
+  margin-left: -12px !important;
+  margin-right: -12px !important;
+}
+
+/* การ์ดต้อง “กว้างกว่าคอนเทนเนอร์” บางส่วน เพื่อเกิดแนวนอนจริง */
+.inginia-db .grid .card {
+  flex: 0 0 78vw !important;   /* มือถือ: กิน ~80% หน้าจอ */
+  max-width: 520px !important; /* เดสก์ท็อปมีเพดาน */
+  min-width: 320px !important; /* กันกรณีโดนย่อจนเล็กกว่า viewport */
+  scroll-snap-align: start !important;
+
+  /* กันสไตล์เดิมมากดให้เต็มความกว้าง */
+  width: auto !important;
+}
+
+/* เผื่อมีคนไปตั้ง overflow:hidden ไว้ที่ .card */
+.inginia-db .grid .card { overflow: visible !important; }
+
+/* ระยะขอบซ้าย-ขวาให้เลื่อนพอดี */
+.inginia-db .grid::before,
+.inginia-db .grid::after {
+  content: "";
+  flex: 0 0 12px;
+}
+
+/* ซ่อนปุ่มอ่านต่อ/แผงเฟดเดิม (หากยังอยู่) */
+.inginia-db .btn-readmore,
+.inginia-db .db-fade {
+  display: none !important;
+}
+
+/* เดสก์ท็อปปรับความกว้างสไลด์ให้สแกนง่าย */
+@media (min-width: 900px) {
+  .inginia-db .grid .card { flex-basis: 460px !important; }
+}
+/* ===== Human Expert + System ===== */
+.human-expert { position: relative; isolation: isolate; }
+
+.human-expert .he-hero{
+  position: relative;
+  min-height: clamp(560px, 70vh, 860px);
+  display: grid;
+  align-items: end;
+  background: #0b0f0c;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 50px rgba(0,0,0,.45);
+}
+
+/* รูปพื้นหลัง (เซ็ตจาก data-img) */
+.human-expert .he-hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-size: cover; background-position: center 30%;
+  background-image: var(--bg-url, url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1600&auto=format&fit=crop"));
+  /* ดึงจาก data-img ถ้ามี */
+}
+.human-expert .he-hero[data-img]::before{
+  background-image: attr(data-img url);
+}
+
+/* ไล่เงา/กราเดียนท์ให้ตัวหนังสืออ่านออกบนภาพ */
+.human-expert .he-overlay{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(60% 80% at 20% 10%, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 55%) ,
+    linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.72) 78%, rgba(0,0,0,.92) 100%);
+  pointer-events:none;
+}
+
+/* คอนเทนต์หลัก */
+.human-expert .he-content{
+  position: relative; z-index: 2;
+  padding: clamp(18px, 3vw, 28px);
+  padding-bottom: clamp(28px, 5vw, 56px);
+  color: #eaf3e8;
+}
+
+.human-expert .he-eyebrow{
+  font-size: 14px; letter-spacing: .14em; text-transform: uppercase;
+  opacity:.9; margin: 0 0 8px;
+  color:#c6ffd1;
+}
+
+.human-expert .he-title{
+  font-size: clamp(28px, 4.8vw, 54px);
+  line-height: 1.05; margin: 0 0 10px;
+  color:#fff; text-shadow: 0 2px 18px rgba(0,0,0,.35);
+}
+.human-expert .he-sub{
+  max-width: 820px;
+  font-size: clamp(16px, 1.7vw, 20px);
+  color: #d7e7d9; opacity:.95;
+}
+
+/* Chips (glass) */
+.human-expert .he-chips{
+  display:flex; flex-wrap: wrap; gap:10px; margin:16px 0 22px;
+}
+.human-expert .chip{
+  --b:rgba(255,255,255,.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding:8px 12px; border-radius:999px;
+  border:1px solid var(--b);
+  color:#eafff0; font-size:13px; white-space:nowrap;
+  background: linear-gradient(180deg, rgba(18,28,22,.55), rgba(8,12,10,.55));
+  box-shadow: inset 0 0 0 1px rgba(173,255,180,.12), 0 2px 10px rgba(0,0,0,.25);
+}
+
+/* CTA */
+.human-expert .he-cta{ display:flex; gap:14px; align-items:center; }
+.human-expert .btn-primary{
+  appearance:none; border:0; border-radius:999px;
+  padding:14px 22px; font-weight:700;
+  color:#0b1a0e; background: #b7ff6a;
+  box-shadow: 0 10px 24px rgba(130,255,120,.22);
+  cursor:pointer;
+}
+.human-expert .btn-primary:hover{ transform: translateY(-1px); }
+.human-expert .btn-link{
+  color:#caff97; text-decoration:none; font-weight:600;
+  border-bottom:1px solid rgba(202,255,151,.35); padding-bottom:2px;
+}
+
+/* กลาสการ์ดที่ลอยทับบนรูป */
+.human-expert .he-glass{
+  position:absolute; inset: auto 0 28px 0;
+  display:grid; gap:12px;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  padding: 0 18px; z-index:2;
+}
+@media (max-width: 960px){
+  .human-expert .he-glass{
+    grid-template-columns: 1fr 1fr; padding: 0 16px;
+  }
+}
+@media (max-width: 640px){
+  .human-expert .he-glass{
+    grid-template-columns: 1fr; padding: 0 14px;
+  }
+}
+.human-expert .glass{
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding:16px 16px 14px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: linear-gradient(180deg, rgba(18,28,22,.55), rgba(8,12,10,.66));
+  color:#e9ffee;
+  box-shadow: 0 8px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.human-expert .glass h4{
+  margin:0 0 6px; font-size:16px; color:#d8ffd1;
+}
+.human-expert .glass p{
+  margin:0; font-size:14px; color:#cfe3d3; opacity:.95;
+}
+
+/* helper */
+.d-mobile{ display:none; }
+@media (max-width:640px){ .d-mobile{ display:inline; } }
+
+/* ถ้าคุณใช้คอนเทนเนอร์กลาง */
+.container{ max-width: 1180px; margin: 0 auto; }
+/* ========== SAFE OVERRIDES (ไม่ทับ, responsive) ========== */
+
+/* เว้นช่องว่างจาก section ด้านบนให้พอดี (ห้ามติดลบ) */
+.glass-section{
+  position: relative;
+  z-index: 0; /* ไม่ลอยทับปุ่มบน */
+  margin-top: clamp(24px, 5vw, 80px);
+  margin-bottom: clamp(24px, 5vw, 80px);
+}
+
+/* คอนเทนเนอร์แบบกริด auto-fit ให้ responsive แน่นอน */
+.glass-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(12px, 2.4vw, 20px);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 24px);
+}
+
+/* การ์ดกระจก—พื้นฐาน ไม่มีลูกเล่นพิเศษ */
+.glass-card{
+  padding: clamp(16px, 2.8vw, 24px);
+  border-radius: 16px;
+  background: rgba(20, 30, 20, 0.45);   /* คุมคอนทราสต์บนพื้นหลังมืด */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #E8F5E1;
+}
+
+/* ตัวอักษรอ่านง่ายทุกจอ */
+.glass-card h4{
+  margin: 0 0 8px;
+  font-size: clamp(16px, 2.6vw, 20px);
+  line-height: 1.25;
+  color: #C9FFC1;
+}
+.glass-card p{
+  margin: 0;
+  font-size: clamp(14px, 2.2vw, 17px);
+  line-height: 1.6;
+  color: #F2F7F0;
+}
+
+/* มือถือเล็กมาก: เว้นขอบไม่ให้ชนขอบจอ */
+@media (max-width: 480px){
+  .glass-container{ padding-left: 16px; padding-right: 16px; }
+}
+
+/* ========== สำคัญ: ปิดของเก่าที่ทำให้ทับ ========== */
+/* ถ้ามีอยู่ในไฟล์ ให้ลบทิ้ง หรือ override ที่นี่ */
+.glass-section { /* ย้ำอีกครั้งเพื่อชนะกฎเก่า */
+  /* ห้ามมี: margin-top: -100px; position: absolute/fixed; top: -xxpx; */
+}
+/* FORCE: Human Expert background */
+#human-expert .he-hero{
+  --bg-url: url("https://img2.pic.in.th/pic/human-expert.png");
+}
+/* ==== HERO: ขยายภาพอุปกรณ์ให้ใหญ่ขึ้นแบบปลอดภัย ==== */
+
+/* 1) โตขึ้นบนจอใหญ่ */
+.hero-body{
+  grid-template-columns: 1.15fr 1fr;         /* ขยายฝั่งภาพเล็กน้อย */
+}
+
+/* 2) เพิ่มเพดานความกว้างของรูป + ให้สเกลตาม viewport */
+.hero-media{
+  justify-content: flex-end;                 /* ดันภาพไปชิดขวา */
+  overflow: visible;                         /* เผื่อภาพเกินกรอบนิด ๆ */
+}
+.hero-media .hero-image{
+  width: clamp(520px, 48vw, 880px);          /* จากเดิม max 540px → ขยายได้ถึง ~880px */
+  max-width: none;                           /* ยกเลิกข้อจำกัดเก่า */
+  height: auto;
+  transform: translateX(0);                  /* กันสไตล์เก่าที่อาจเลื่อน */
+}
+
+/* 3) ให้บล็อกซ้ายมีที่หายใจเพิ่มเล็กน้อยเวลาภาพใหญ่ */
+.hero{
+  padding-right: min(6vw, 96px);
+}
+
+/* 4) มือถือ/แท็บเล็ต: คงสัดส่วนอ่านง่ายเหมือนเดิม */
+@media (max-width: 980px){
+  .hero-body{ grid-template-columns: 1fr; }
+  .hero-media .hero-image{
+    width: 90vw;           /* ให้เต็มจอมือถือ แต่ไม่ชนขอบ */
+    max-width: 680px;      /* กันเผื่อแท็บเล็ตแนวนอน */
+    margin: 0 auto;
+  }
+}
+/* ภาพล้นออกขอบขวาเล็กน้อยเพื่อความดราม่า (เฉพาะเดสก์ท็อป) */
+@media (min-width: 1200px){
+  .hero-media .hero-image{
+    width: clamp(720px, 54vw, 980px);
+    translate: 4% 0;       /* ขยับออกขวานิด ๆ */
+  }
+}
+/* ===== LOGO IMAGE STYLE ===== */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: clamp(44px, 5vw, 72px);     /* responsive: ขนาดขึ้นกับจอ */
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35)); /* เงาบาง ๆ ให้คม */
+  transition: transform 0.25s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.04);
+}
+
+/* ถ้ามีโหมดมืดหรือพื้นหลังมืด */
+.nav .logo img {
+  mix-blend-mode: normal; /* ป้องกันสีจม */
+}
+/* ==== HERO IMAGE POSITION FIX ==== */
+.human-expert .he-hero::before {
+  background-position: center top; /* จาก center 30% → top */
+  transform: translateY(-10%);
+   /* ยกรูปขึ้นไปอีกเล็กน้อย (ปรับได้ 0–10%) */
+}
+
+/* ถ้ารู้สึกว่ายังอยากให้สูงอีก: ลอง -10% */
+@media (min-width: 1024px) {
+  .human-expert .he-hero::before {
+    transform: translateY(-8%);
+  }
+}
+
+/* ==== FADE OVERLAY FIX ==== */
+.human-expert .he-overlay {
+  background:
+    radial-gradient(60% 80% at 20% 10%, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 55%),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0) 30%,      /* เดิมเริ่มเฟดที่ 35% → ลดลงเพื่อให้เฟดขึ้นสูงกว่า */
+      rgba(0,0,0,.7) 50%,     /* เพิ่มความเข้มกลางภาพ */
+      rgba(0,0,0,.92) 95%     /* ให้ดำขึ้นยาวกว่าเดิม */
+    );
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+/* ===== Inginia DB — Hero image + overlay + glass cards (responsive) ===== */
+.inginia-db{
+  /* ตั้งภาพพื้นหลัง HERO ตรงนี้ */
+  --db-bg: url('https://img2.pic.in.th/pic/d9372b8ee5bc880a2f1f42e8a31a16df.png');
+
+  /* ปรับความสูงบล็อกรูป และระยะซ้อนทับการ์ด */
+  --db-img-h: clamp(320px, 46vw, 560px);
+  --db-overlap: clamp(56px, 8vw, 120px);
+  --db-radius: 22px;
+
+  position: relative;
+  z-index: 0;
+}
+
+/* วาด “รูปพื้นหลัง” ด้านบนสุดของ section */
+.inginia-db::before{
+  content:"";
+  position: absolute;
+  left: 0; top: 0; right: 0;
+  height: var(--db-img-h);
+  background-image: var(--db-bg);
+  background-size: cover;
+  background-position: center calc(50% - 60px);
+  border-radius: var(--db-radius);
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  z-index: 0;  /* ต่ำสุด */
+}
+
+/* ไล่เฟดดำจากกลางลงล่าง เพื่อให้ตัวอักษรอ่านง่าย */
+.inginia-db::after{
+  content:"";
+  position:absolute;
+  left:0; top:0; right:0;
+  height: var(--db-img-h);
+  border-radius: var(--db-radius);
+  background: linear-gradient(180deg,
+              rgba(0,0,0,0.05) 25%,
+              rgba(0,0,0,0.80) 100%);
+  z-index: 1; /* อยู่เหนือรูป */
+}
+
+/* ขยับเนื้อหาให้ไป “ทับ” รูปด้านบน และเว้นช่องให้การ์ดซ้อน */
+.inginia-db .page{
+  position: relative;
+  padding-top: calc(var(--db-img-h) - var(--db-overlap));
+}
+
+/* ทำหัวข้อให้ลอยอยู่บนรูป (ชิดล่างของบล็อกรูป) */
+.inginia-db .hero{
+  position: absolute;
+  left: clamp(16px, 3vw, 24px);
+  right: clamp(16px, 3vw, 24px);
+  top: 0;
+  height: var(--db-img-h);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(16px, 3vw, 28px);
+  color: #f3f8f3;
+  text-shadow: 0 2px 16px rgba(0,0,0,.45);
+  z-index: 2; /* อยู่เหนือ overlay */
+}
+
+.inginia-db .hero h2{
+  margin: 0 0 6px;
+  font-size: clamp(28px, 4.8vw, 44px);
+  line-height: 1.08;
+}
+.inginia-db .hero p{
+  margin: 0;
+  max-width: 900px;
+  font-size: clamp(15px, 1.65vw, 18px);
+  opacity: .95;
+}
+
+/* กริดการ์ด: ซ้อนบนรูปด้วย margin-top ติดลบ */
+.inginia-db .grid{
+  position: relative;
+  z-index: 3; /* การ์ดอยู่สูงกว่าหัวข้อ/overlay */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: calc(var(--db-overlap) * -1);
+  padding-top: var(--db-overlap);
+}
+
+/* การ์ดแก้ว */
+.inginia-db .card{
+  background: linear-gradient(140deg, rgba(10,16,12,.55) 0%, rgba(3,4,3,.22) 100%);
+  border: 1px solid rgba(154,242,81,.10);
+  border-top: 1px solid rgba(154,242,81,.28);
+  border-radius: 18px;
+  padding: 16px 18px 18px;
+  color: #e9f7e9;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 14px 45px rgba(0,0,0,.35);
+}
+.inginia-db .card h3{ font-size: 1.05rem; margin: 0 0 .3rem; }
+.inginia-db .card .desc{ font-size: .86rem; color: rgba(245,245,245,.78); line-height: 1.5; margin-bottom: .5rem; }
+.inginia-db .card .benefit{ font-size: .86rem; line-height: 1.5; }
+.inginia-db .card .benefit strong{ color: #9AF251; }
+
+/* หมายเหตุด้านล่าง */
+.inginia-db .note{
+  margin-top: 22px;
+  background: rgba(9,12,10,.4);
+  border: 1px solid rgba(154,242,81,.18);
+  border-radius: 16px;
+  padding: 14px 16px 16px;
+  font-size: .86rem;
+  color: rgba(245,245,245,.88);
+}
+
+/* มือถือ */
+@media (max-width: 720px){
+  .inginia-db{ --db-img-h: 300px; --db-overlap: 84px; }
+  .inginia-db .grid{ grid-template-columns: 1fr; }
+}
+/* ===== STYLE: DB INTRO HEADING THEME (เหมือน HERO TEXT เดิม) ===== */
+.db-intro .db-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  padding: clamp(16px, 5vw, 48px);
+  color: #fff;
+}
+
+.db-intro .db-content h2 {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+  margin-bottom: 10px;
+}
+
+.db-intro .db-content p {
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* สีเน้นคำ */
+.db-intro .hl {
+  color: #9AF251;
+}
+
+/* มือถือ */
+@media (max-width: 720px) {
+  .db-intro .db-content h2 {
+    font-size: 24px;
+  }
+  .db-intro .db-content p {
+    font-size: 15px;
+  }
+}
