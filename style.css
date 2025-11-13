@@ -1417,3 +1417,228 @@ body {
     font-size: 15px;
   }
 }
+/* ===== Founding 10 – Elite Founder Club (Scroll Version) ===== */
+
+.founding10 {
+  padding: clamp(40px, 6vw, 72px) 0;
+  background: radial-gradient(circle at top, #07110b 0%, #020403 55%, #020302 100%);
+}
+
+.founding10-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 32px);
+}
+
+.founding10-head {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.founding10-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(154,242,81,0.10);
+  color: #9AF251;
+  border-radius: 999px;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.founding10-head h2 {
+  margin: 10px 0 6px;
+  font-size: clamp(26px, 4vw, 34px);
+  color: #f8fff5;
+}
+
+.founding10-head p {
+  color: rgba(240, 248, 240, 0.78);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ------------- SCROLL ROW ------------- */
+.founding10-scroll {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  margin-top: 28px;
+}
+
+.founding10-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.founding10-scroll::-webkit-scrollbar-thumb {
+  background: rgba(154,242,81,0.22);
+  border-radius: 999px;
+}
+
+/* CARD */
+.f-card {
+  min-width: 280px;
+  width: 80%;
+  max-width: 320px;
+  background: rgba(4, 7, 5, 0.9);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(154,242,81,0.14);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+  scroll-snap-align: start;
+}
+
+/* CARD IMAGE */
+.f-card-media {
+  position: relative;
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px 16px;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 4px 14px rgba(0,0,0,.7);
+}
+
+/* Gradient Variations */
+.media-1 { background: radial-gradient(circle at top left,#9AF251 0%,#0b2313 48%,#020403 100%); }
+.media-2 { background: radial-gradient(circle at top,#42ffb0 0%,#071d18 50%,#020304 100%); }
+.media-3 { background: radial-gradient(circle at top right,#76a8ff 0%,#071322 52%,#020205 100%); }
+.media-4 { background: radial-gradient(circle at center,#ffb35e 0%,#261208 52%,#040304 100%); }
+
+/* CARD BODY */
+.f-card-body {
+  padding: 14px 16px 18px;
+  color: #f4fff5;
+}
+
+.f-label {
+  font-size: .78rem;
+  color: #9AF251;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 4px;
+}
+
+.f-card-body h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.f-card-body p {
+  color: rgba(235,245,235,0.92);
+  font-size: .9rem;
+  line-height: 1.55;
+}
+.highlight-green {
+  color: #9AF251 !important;
+}
+/* SECTION WRAPPER — WHITE APPLE STYLE */
+.toolstack {
+  padding: 80px 0;
+  background: #ffffff;      /* สีขาวล้วน */
+  color: #111111;           /* ตัวอักษรสีดำ */
+}
+
+.toolstack-inner {
+  width: min(1200px, 94%);
+  margin: 0 auto;
+}
+
+/* 2-COLUMN LAYOUT */
+.toolstack-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 48px;
+  align-items: center;
+}
+
+/* LEFT COPY — APPLE STYLE */
+.toolstack-copy h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+  font-weight: 700;
+  color: #111;
+}
+
+.toolstack-copy p {
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.55;
+  opacity: .8;
+  max-width: 430px;
+}
+
+/* LOGO GRID (Apple style) */
+.toolstack-logos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* LOGO TILE — Like Apple */
+.logo-item {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Apple-style soft shadow */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08),
+              0 1px 2px rgba(0,0,0,0.04);
+
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* THE LOGOS — KEEP ORIGINAL SHAPE */
+.logo-item img {
+  max-height: 42px;    /* ปรับขนาดภาพรวม */
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* MORE TILE */
+.more-tile {
+  border: 1px dashed rgba(0,0,0,0.15) !important;
+  background: #fafafa;
+}
+.more-tile span {
+  font-size: 14px;
+  color: #444;
+  opacity: .8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .toolstack-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .toolstack-logos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .toolstack {
+    padding: 60px 0;
+  }
+  .toolstack-logos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .logo-item {
+    padding: 16px 14px;
+    border-radius: 18px;
+  }
+  .logo-item img {
+    max-height: 34px;
+  }
+}
