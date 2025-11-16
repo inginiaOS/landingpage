@@ -1642,3 +1642,683 @@ body {
     max-height: 34px;
   }
 }
+:root {
+  --green: #9AF251;
+  --text-main: #fff;
+  --text-soft: #d1d1d1;
+  --card-bg: #0a0a0a;
+}
+
+/* SECTION WRAPPER */
+.real-screenshots {
+  padding: 70px 0;
+  background: #040404;
+  color: var(--text-main);
+}
+
+.rs-inner {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+/* HEAD */
+.rs-head h2 {
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.rs-head p {
+  color: var(--text-soft);
+  font-size: 1rem;
+  max-width: 620px;
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+/* HORIZONTAL SCROLL */
+.rs-row {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px 6px 20px;
+  margin: 0 -6px; 
+  -webkit-overflow-scrolling: touch;
+}
+
+/* optional scrollbar */
+.rs-row::-webkit-scrollbar {
+  height: 6px;
+}
+.rs-row::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+  border-radius: 999px;
+}
+
+/* CARD STYLE */
+.rs-card {
+  flex: 0 0 76%;
+  max-width: 360px;
+  background: var(--card-bg);
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 35px rgba(0,0,0,0.6);
+}
+
+/* IMAGE */
+.rs-img {
+  position: relative;
+  width: 100%;
+  padding-bottom: 150%; /* vertical card style */
+}
+
+.rs-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* TEXT */
+.rs-body {
+  padding: 14px 18px 20px;
+}
+
+.rs-body h3 {
+  font-size: 1.05rem;
+  margin: 0 0 6px;
+  color: var(--green);
+}
+
+.rs-body p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0;
+  color: var(--text-soft);
+}
+
+/* DESKTOP */
+@media (min-width: 860px) {
+  .rs-card {
+    flex: 0 0 310px;
+  }
+}
+/* ===== Timeline Section: 2-Day Process ===== */
+
+/* ใช้สีเขียวเข้มขึ้น แต่ยังอยู่ใน family ของ InginiaOS */
+:root {
+  --green: #9AF251;
+  --green-strong: #6ddc2f;  /* ใช้กับเส้นแกนกลาง */
+}
+
+.timeline-section {
+  padding: 72px 0 80px;
+  background: #ffffff;
+  color: #111111;
+}
+
+.timeline-inner {
+  width: min(1120px, 94%);
+  margin: 0 auto;
+}
+
+.timeline-head {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.timeline-head h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.4rem);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.timeline-head p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555555;
+}
+
+/* แกนกลางสีเขียวเข้ม */
+.timeline-track {
+  position: relative;
+  padding: 10px 0 40px;
+  margin-top: 12px;
+}
+.timeline-track::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  border-radius: 999px;
+  background: var(--green-strong);
+  box-shadow: 0 0 0 1px rgba(109, 220, 47, 0.15);
+  z-index: 0;
+}
+
+/* ITEM */
+.timeline-item {
+  position: relative;
+  margin: 40px 0;
+  z-index: 1;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 28px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--green-strong);
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 3px rgba(109, 220, 47, 0.18);
+}
+
+/* การ์ดหลัก */
+.timeline-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+  padding: 20px 22px 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 18px;
+}
+
+.timeline-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.timeline-step {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(109, 220, 47, 0.12);
+  color: #1a310b;
+  font-weight: 600;
+}
+.timeline-label {
+  font-size: 0.85rem;
+  color: #777777;
+}
+
+.timeline-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.timeline-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444444;
+  margin-bottom: 8px;
+}
+.timeline-card ul {
+  padding-left: 18px;
+  margin: 0;
+  font-size: 0.92rem;
+  color: #444444;
+  line-height: 1.6;
+}
+.timeline-card li + li {
+  margin-top: 4px;
+}
+
+/* รูป mockup (BG ขาว) */
+.timeline-media {
+  align-self: center;
+}
+.timeline-media img {
+  width: 100%;
+  display: block;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+}
+
+/* จัดซ้าย-ขวาบนจอใหญ่ให้เหมือน infographic */
+@media (min-width: 900px) {
+  .timeline-item.left .timeline-card {
+    max-width: 460px;
+    margin-right: auto;
+  }
+  .timeline-item.right .timeline-card {
+    max-width: 460px;
+    margin-left: auto;
+  }
+}
+
+/* FOOTNOTE */
+.timeline-footnote {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: #555555;
+  text-align: center;
+}
+
+/* ===== Responsive: มือถือ & แท็บเล็ต ===== */
+@media (max-width: 900px) {
+  /* เลื่อนเส้นแกนไปซ้าย แต่ยังอยู่ครบ ไม่หาย */
+  .timeline-track {
+    padding-left: 32px;
+  }
+  .timeline-track::before {
+    left: 24px;
+  }
+  .timeline-item::before {
+    left: 24px;
+  }
+
+  .timeline-card {
+    margin-left: 32px;
+    grid-template-columns: 1fr;  /* รูปลงไปอยู่ใต้ตัวหนังสือ */
+  }
+
+  .timeline-media {
+    order: 2;       /* รูปไว้ล่าง */
+  }
+}
+
+@media (max-width: 600px) {
+  .timeline-section {
+    padding: 56px 0 64px;
+  }
+  .timeline-head h2 {
+    font-size: 1.6rem;
+  }
+  .timeline-card {
+    padding: 18px 18px 20px;
+  }
+}
+/* ===== FOLLOW-UP SECTION ===== */
+
+.followup-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.followup-inner {
+  width: min(1120px, 94%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.followup-inner h2 {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  margin-bottom: 12px;
+}
+
+.followup-sub {
+  color: #555;
+  max-width: 680px;
+  margin: 0 auto 40px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.followup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+.followup-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px 22px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+.followup-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.followup-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+@media (max-width: 600px) {
+  .followup-card {
+    padding: 20px 18px;
+  }
+}
+/* ===== FOLLOW-UP: TITLE STRONGER ===== */
+.followup-inner h2 {
+  font-size: clamp(1.9rem, 4vw, 2.3rem);
+  font-weight: 700;
+  color: #0E0E0E;
+  margin-bottom: 10px;
+}
+
+.followup-sub {
+  font-size: 1.05rem;
+  color: #333;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+/* ===== FOLLOW-UP: CARD SCROLL STYLE ===== */
+
+.followup-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.followup-grid::-webkit-scrollbar {
+  display: none;  /* ซ่อน scrollbar ให้สวยแบบ Apple */
+}
+
+.followup-card {
+  min-width: 80%;
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 22px;
+  padding: 26px 24px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+  flex-shrink: 0;
+}
+
+@media (min-width: 900px) {
+  .followup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+  }
+  .followup-card {
+    min-width: unset;
+  }
+}
+
+/* ===== FOLLOW-UP: CARD TITLE MORE VISIBLE ===== */
+
+.followup-card h3 {
+  margin-bottom: 12px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #000;  /* เข้มขึ้น */
+}
+
+.followup-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* ปรับไอคอนให้ใหญ่และคมขึ้น */
+.followup-card h3::before {
+  font-size: 1.2rem;
+}
+/* === WHO FITS SECTION === */
+
+.fit-section {
+  padding: 72px 16px 64px;
+  background: #fafafa;
+}
+
+.fit-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.fit-head {
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.fit-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0f5132;
+  background: rgba(56, 196, 137, 0.12);
+  margin-bottom: 12px;
+}
+
+.fit-head h2 {
+  font-size: 26px;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+
+.fit-sub {
+  margin: 0;
+  color: #5f6368;
+  font-size: 15px;
+}
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+/* base card */
+
+.fit-card {
+  position: relative;
+  border-radius: 24px;
+  padding: 24px 20px 22px;
+  overflow: hidden;
+  box-shadow:
+    0 14px 35px rgba(15, 23, 42, 0.06),
+    0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fit-card h3 {
+  font-size: 18px;
+  margin: 10px 0 12px;
+}
+
+.fit-card ul {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.fit-card li + li {
+  margin-top: 4px;
+}
+
+.fit-card .fit-note {
+  margin-top: 14px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* floating label on top of card */
+
+.fit-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* YES card — สีสด */
+
+.fit-card--yes {
+  background: radial-gradient(circle at top left, #00f2a9 0, #00c26f 35%, #009f5a 70%, #00814a 100%);
+  color: #ffffff;
+}
+
+.fit-card--yes .fit-label {
+  background: rgba(255, 255, 255, 0.14);
+  color: #eafff5;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.fit-card--yes ul li::marker {
+  color: #eafff5;
+}
+
+/* NO card — ขาวดำ / เบรกโทน */
+
+.fit-card--no {
+  background: #ffffff;
+  color: #4a4a4a;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.fit-card--no::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at top left, rgba(0, 0, 0, 0.06), transparent 55%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.fit-card--no .fit-label {
+  background: rgba(0, 0, 0, 0.04);
+  color: #5f5f5f;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.fit-card--no h3,
+.fit-card--no ul,
+.fit-card--no .fit-note {
+  position: relative;
+  z-index: 1;
+}
+
+/* hover (desktop only) */
+
+@media (hover: hover) and (pointer: fine) {
+  .fit-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 18px 40px rgba(15, 23, 42, 0.10),
+      0 4px 10px rgba(15, 23, 42, 0.06);
+  }
+}
+
+/* desktop layout */
+
+@media (min-width: 768px) {
+  .fit-section {
+    padding: 88px 24px 72px;
+  }
+
+  .fit-head {
+    max-width: 720px;
+    margin-bottom: 40px;
+  }
+
+  .fit-head h2 {
+    font-size: 30px;
+  }
+
+  .fit-sub {
+    font-size: 16px;
+  }
+
+  .fit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .fit-card {
+    padding: 26px 24px 22px;
+  }
+}
+/* === WHO FITS SECTION — DARK MODE === */
+
+.fit-section {
+  padding: 72px 16px 64px;
+  background: #000; /* เปลี่ยนพื้นหลังเป็นดำ */
+  color: #fff; /* ตัวอักษรพื้นฐานเป็นสีขาว */
+}
+
+.fit-head h2 {
+  color: #ffffff;
+}
+
+.fit-sub {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* YES card — ยังคงสีเดิม */
+.fit-card--yes {
+  background: radial-gradient(circle at top left, #00f2a9 0, #00c26f 35%, #009f5a 70%, #00814a 100%);
+  color: #ffffff;
+}
+
+/* NO card — เปลี่ยน backdrop ให้ไม่โดดจากดำมากเกินไป */
+.fit-card--no {
+  background: #111; /* จากขาว → เทาดำ */
+  color: #e5e5e5;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.fit-card--no::before {
+  background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 55%);
+}
+
+.fit-card--no .fit-label {
+  background: rgba(255, 255, 255, 0.06);
+  color: #d5d5d5;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* list bullet สีขาวให้สุภาพขึ้น */
+.fit-card--no ul li::marker {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* label บนสุด */
+.fit-label {
+  color: #fff;
+}
+
+/* hover state */
+@media (hover: hover) and (pointer: fine) {
+  .fit-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.4),
+      0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* desktop_layout */
+@media (min-width: 768px) {
+  .fit-section {
+    padding: 88px 24px 72px;
+  }
+}
