@@ -319,3 +319,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setTimeout(()=>{ bindHeroCTA(); guardOverlays(); }, 0);
 })();
+document.addEventListener('DOMContentLoaded', () => {
+  const section = document.querySelector('#process.timeline-section');
+  const btn = section?.querySelector('.timeline-toggle');
+
+  if (!section || !btn) return;
+
+  const updateLabel = () => {
+    if (section.classList.contains('is-collapsed')) {
+      btn.textContent = 'ดูว่าเราทำอะไรใน 48 ชั่วโมง ?';
+    } else {
+      btn.textContent = 'ซ่อนรายละเอียด 48 ชั่วโมงแรก';
+    }
+  };
+
+  updateLabel();
+
+  btn.addEventListener('click', () => {
+    section.classList.toggle('is-collapsed');
+    updateLabel();
+  });
+});
