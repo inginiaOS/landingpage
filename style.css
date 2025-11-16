@@ -2395,3 +2395,324 @@ body {
     0 18px 40px rgba(15, 23, 42, 0.7),
     0 4px 10px rgba(15, 23, 42, 0.4);
 }
+/* ปุ่ม toggle */
+.timeline-toggle {
+  margin-top: 16px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #00c26f;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 194, 111, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.timeline-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(0, 194, 111, 0.4);
+}
+
+.timeline-toggle:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 194, 111, 0.3);
+}
+
+/* พับเนื้อหาเมื่อมี is-collapsed */
+.timeline-section.is-collapsed .timeline-track,
+.timeline-section.is-collapsed .timeline-footnote {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(-6px);
+}
+
+.timeline-section .timeline-track,
+.timeline-section .timeline-footnote {
+  max-height: 2000px; /* พอให้ขยายได้ทั้งบล็อก */
+  opacity: 1;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* เปลี่ยนข้อความปุ่มนิดหน่อย (optional ใช้ JS แทนก็ได้) */
+.timeline-section.is-collapsed .timeline-toggle::after {
+  content: "";
+}
+/* ========== FIX 1: ให้หัวข้อ "แค่ 2 วัน..." ตัวเท่ากับ
+   "หลังจากระบบเริ่มทำงาน..." ========== */
+
+.timeline-head h2 {
+  font-size: clamp(1.9rem, 4vw, 2.3rem) !important;
+  font-weight: 700;
+}
+
+/* กันเคส mobile ที่ media query เดิมไปลดลงเหลือ 1.6rem */
+@media (max-width: 600px) {
+  .timeline-head h2 {
+    font-size: clamp(1.9rem, 4vw, 2.3rem) !important;
+  }
+}
+
+
+/* ========== FIX 2: บีบช่องว่างระหว่างปุ่ม 48 ชม. กับ
+   หัวข้อ "หลังจากระบบเริ่มทำงาน..." ========== */
+
+/* ลด padding ล่างของ section แรก (แค่ 2 วัน...) */
+.timeline-section {
+  padding-bottom: 28px !important;
+}
+
+/* เผื่อมี margin/padding ที่ bottom ใน track & footnote */
+.timeline-section .timeline-track,
+.timeline-section .timeline-footnote {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* ลด padding บนของ section ถัดไป */
+.followup-section {
+  padding-top: 24px !important;
+  margin-top: 0 !important;
+}
+
+/* ยาแรง: ดึง section "หลังจากระบบเริ่มทำงาน..." ขึ้นไปชิดปุ่มอีกนิด */
+.timeline-section + .followup-section {
+  margin-top: -18px !important;   /* อยากชิดกว่านี้ลดเลขลงได้ เช่น -24px */
+}
+/* ===== FIX: Follow-up cards — show 2–3 cards on mobile ===== */
+
+@media (max-width: 768px) {
+
+  /* ให้แถวสไลด์แบบ 2–3 ใบครึ่ง */
+  .followup-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 16px !important;
+    padding: 6px 0 18px !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* กำหนดความกว้างการ์ดใหม่แบบสวย */
+  .followup-card {
+    flex: 0 0 55vw !important;       /* ← สัดส่วนนี้จะเห็น 2–3 ใบครึ่งบนจอ */
+    max-width: 320px !important;
+    min-width: 240px !important;
+    scroll-snap-align: start;
+  }
+}
+
+/* Desktop ยังเป็น grid ปกติ */
+@media (min-width: 900px) {
+  .followup-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    overflow: visible !important;
+  }
+  .followup-card {
+    min-width: unset !important;
+  }
+}
+/* ===== MONTH 1 – INSTALL BRAIN SECTION ===== */
+
+.install-month1 {
+  background: #040404;
+  color: #f9fafb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 72px 0 80px;
+}
+
+.install-month1 .install-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* HEAD + PRICE */
+
+.install-month1 .install-eyebrow {
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9AF251;
+  margin-bottom: 8px;
+}
+
+.install-month1 .install-title {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  line-height: 1.3;
+  margin: 0 0 10px;
+}
+
+.install-month1 .install-subtitle {
+  font-size: 0.98rem;
+  color: rgba(226, 232, 240, 0.82);
+  max-width: 720px;
+  margin: 0 0 24px;
+}
+
+.install-month1 .install-price {
+  text-align: left;
+}
+
+.install-month1 .price-label {
+  display: block;
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.9);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.install-month1 .price-number {
+  display: block;
+  font-size: clamp(3rem, 6vw, 4rem);
+  font-weight: 200;
+  line-height: 1;
+  background: linear-gradient(180deg, #e8f7ff 0%, #8fb1c4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.install-month1 .price-unit {
+  display: block;
+  margin-top: 6px;
+  font-size: 1rem;
+  color: rgba(230, 240, 245, 0.9);
+}
+
+.install-month1 .price-note {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: rgba(198, 210, 220, 0.9);
+}
+
+/* REASONS + CARDS */
+
+.install-month1 .install-reasons {
+  margin-top: 38px;
+}
+
+.install-month1 .reasons-title {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+/* แถวการ์ด – mobile = เลื่อนข้าง, desktop = grid */
+
+.install-month1 .reasons-scroller {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 4px 16px;
+  margin: 0 -4px 18px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.install-month1 .reasons-scroller::-webkit-scrollbar {
+  height: 6px;
+}
+
+.install-month1 .reasons-scroller::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 999px;
+}
+
+/* การ์ดแต่ละใบ */
+
+.install-month1 .reason-card {
+  flex: 0 0 78vw;              /* เห็นประมาณ 1.5–2 ใบบนจอมือถือ */
+  max-width: 360px;
+  scroll-snap-align: start;
+
+  background: radial-gradient(circle at top left,
+              rgba(154, 242, 81, 0.16) 0,
+              rgba(15, 23, 42, 0.98) 42%,
+              #020617 100%);
+  border-radius: 22px;
+  padding: 18px 18px 18px;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.install-month1 .reason-card h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: #e5fbe5;
+}
+
+.install-month1 .reason-lead {
+  font-size: 0.88rem;
+  color: rgba(226, 232, 240, 0.9);
+  margin: 0;
+}
+
+.install-month1 .reason-card ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.install-month1 .reason-card li + li {
+  margin-top: 2px;
+}
+
+/* FOOTNOTE */
+
+.install-month1 .reasons-footnote {
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.9);
+  max-width: 780px;
+}
+
+/* DESKTOP: ใช้ grid 3 คอลัมน์ */
+
+@media (min-width: 960px) {
+  .install-month1 .install-head {
+    max-width: 720px;
+  }
+
+  .install-month1 .reasons-scroller {
+    margin: 0 0 22px;
+    padding: 0;
+    overflow: visible;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .install-month1 .reason-card {
+    flex: 0 0 auto;   /* ให้ grid control เอง */
+    max-width: none;
+  }
+}
+
+/* จอเล็กมาก – หดการ์ดให้เห็น 2–3 ใบครึ่ง */
+
+@media (max-width: 480px) {
+  .install-month1 .reason-card {
+    flex-basis: 72vw;
+  }
+}
+/* FORCE SUKHUMVIT FOR THE ENTIRE INSTALL SECTION */
+.install-container,
+.install-container *,
+.install-month1,
+.install-month1 * {
+  font-family: "Sukhumvit Set", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
