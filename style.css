@@ -1,3 +1,3363 @@
+:root {
+  --green: #9AF251;
+  --green-soft: rgba(154, 242, 81, 0.12);
+  --bg: #040404;
+  --bg-card: rgba(8, 8, 8, 0.5);
+  --text: #f5f5f5;
+  --muted: #b7b7b7;
+  --radius-lg: 22px;
+  --radius-md: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  background: #ff00ff;
+  font-family: "Sukhumvit Set", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #0d3014 0%, #020402 45%, #020202 100%);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* HERO */
+.hero {
+  padding: 28px min(6vw, 80px) 80px;
+  background: linear-gradient(160deg, #020202 0%, #07150a 28%, #020202 65%);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+}
+
+.nav-cta {
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid rgba(154,242,81,.35);
+  padding: 6px 18px 8px;
+  border-radius: 999px;
+  font-size: .85rem;
+}
+
+.hero-body {
+  display: grid;
+  grid-template-columns: 1.05fr 0.85fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.tagline {
+  color: var(--green);
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 4vw, 3.4rem);
+  font-weight: 700;
+  letter-spacing: -.05em;
+  margin-bottom: 14px;
+}
+
+.hero h1 span {
+  color: var(--green);
+}
+
+.lead {
+  color: var(--muted);
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #020202;
+  padding: 10px 18px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .9rem;
+  box-shadow: 0 12px 35px rgba(154,242,81,.35);
+}
+
+.btn-ghost {
+  border: 1px solid rgba(245,245,245,.12);
+  color: var(--text);
+  padding: 10px 18px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: .9rem;
+}
+
+.hero-media .media-placeholder {
+  background: radial-gradient(circle, rgba(154,242,81,.12) 0%, rgba(0,0,0,0) 65%), rgba(6,6,6,.8);
+  border: 1px dashed rgba(154,242,81,.35);
+  border-radius: 16px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+/* SECTION TITLE */
+.section-title {
+  padding: 0 min(6vw, 80px);
+  margin-bottom: 28px;
+}
+.section-title.center {
+  text-align: center;
+}
+.section-title h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin-bottom: 10px;
+}
+.section-title p {
+  color: var(--muted);
+}
+
+/* WHY */
+.why {
+  padding: 50px min(6vw, 80px) 40px;
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+.why-card {
+  background: rgba(9,14,9,.6);
+  border: 1px solid rgba(154,242,81,.12);
+  border-radius: 18px;
+  padding: 18px 18px 22px;
+}
+.why-card h3 {
+  margin-bottom: 6px;
+  color: var(--green);
+  font-size: 1rem;
+}
+
+/* CORE */
+.core {
+  padding: 50px min(6vw, 80px) 30px;
+}
+.core-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+.core-card {
+  background: rgba(6, 10, 6, 0.35);
+  border: 1px solid rgba(154,242,81,.08);
+  border-radius: 20px;
+  padding: 20px 20px 22px;
+  backdrop-filter: blur(15px);
+}
+.core-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+.core-card p {
+  font-size: .9rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.core-card ul {
+  list-style: none;
+}
+.core-card li {
+  font-size: .85rem;
+  margin-bottom: 5px;
+  padding-left: 14px;
+  position: relative;
+}
+.core-card li::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 99px;
+  background: var(--green);
+  position: absolute;
+  left: 0;
+  top: .5rem;
+}
+.pill {
+  display: inline-block;
+  font-size: .65rem;
+  background: rgba(154,242,81,.08);
+  border: 1px solid rgba(154,242,81,.35);
+  border-radius: 999px;
+  padding: 3px 10px 5px;
+  margin-bottom: 9px;
+  color: var(--green);
+}
+
+/* DB SECTION */
+.db-section {
+  padding: 40px min(6vw, 80px);
+}
+.db-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 14px;
+}
+.db-card {
+  background: rgba(6,8,6,.35);
+  border: 1px solid rgba(154,242,81,.06);
+  border-radius: 16px;
+  padding: 14px 14px 16px;
+}
+.db-card h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+.db-card p {
+  font-size: .8rem;
+  color: var(--muted);
+}
+.db-note {
+  margin-top: 18px;
+  font-size: .7rem;
+  color: rgba(245,245,245,.5);
+}
+
+/* PRICE */
+.price {
+  padding: 50px min(6vw, 80px) 60px;
+}
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+.price-card {
+  background: rgba(9,11,9,.6);
+  border: 1px solid rgba(154,242,81,.08);
+  border-radius: 20px;
+  padding: 20px 20px 24px;
+}
+.price-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+.price-tag {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.price-card .small {
+  font-size: .75rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.price-card ul {
+  list-style: none;
+}
+.price-card li {
+  font-size: .8rem;
+  margin-bottom: 4px;
+  padding-left: 12px;
+  position: relative;
+}
+.price-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--green);
+}
+.price-card.highlight {
+  background: linear-gradient(170deg, rgba(154,242,81,.25) 0%, rgba(14,16,14,.3) 65%);
+  border: 1px solid rgba(154,242,81,.55);
+  box-shadow: 0 16px 50px rgba(154,242,81,.2);
+}
+
+/* FOOTER */
+.footer {
+  padding: 55px 20px 40px;
+  text-align: center;
+  background: #020302;
+}
+.footer-inner h2 {
+  margin-bottom: 6px;
+}
+.footer-inner p {
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.footer .btn-primary {
+  display: inline-block;
+}
+.copyright {
+  margin-top: 18px;
+  font-size: .7rem;
+  color: rgba(245,245,245,.3);
+}
+
+/* RESPONSIVE */
+@media (max-width: 980px) {
+  .hero-body {
+    grid-template-columns: 1fr;
+  }
+  .hero-media {order:2;}
+  .hero-text {order:1;}
+}
+@media (max-width: 640px) {
+  .hero {padding-inline: 16px;}
+  .section-title {padding-inline: 16px;}
+  .why, .core, .db-section, .price {padding-inline: 16px;}
+  .hero-actions {flex-direction: column; align-items: flex-start;}
+}
+.hero-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-media .hero-image {
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  display: block;
+  border: none;              /* ไม่มีเส้นขอบ */
+  border-radius: 0;          /* ไม่ตัดมุม */
+  background: none;          /* ไม่มีพื้นหลัง */
+  box-shadow: none;          /* ไม่มีเงา */
+  outline: none;             /* ไม่มีกรอบ outline */
+  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.45))
+          drop-shadow(0 0 40px rgba(154, 242, 81, 0.12)); /* เงาลอยบางๆเท่านั้น */
+  transform: translateY(0);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.6s ease;
+}
+
+.hero-media .hero-image:hover {
+  transform: translateY(-6px);
+  filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.6))
+          drop-shadow(0 0 60px rgba(154, 242, 81, 0.2));
+}
+
+@media (max-width: 980px) {
+  .hero-media .hero-image {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+/* ===== InginiaOS DB section ===== */
+.inginia-db {
+  padding: 40px min(6vw, 80px) 50px;
+  background: transparent;
+}
+
+.inginia-db .page {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.inginia-db .hero {
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.inginia-db .hero h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  letter-spacing: -.02em;
+  margin-bottom: .35rem;
+}
+
+.inginia-db .hero p {
+  color: rgba(245, 245, 245, 0.7);
+  max-width: 720px;
+  line-height: 1.45;
+}
+
+/* grid layout */
+.inginia-db .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+/* glass card */
+.inginia-db .card {
+  background: linear-gradient(140deg, rgba(10, 16, 12, 0.55) 0%, rgba(3, 4, 3, 0.2) 100%);
+  border: 1px solid rgba(154, 242, 81, 0.07);
+  border-top: 1px solid rgba(154, 242, 81, 0.28);
+  border-radius: 1.1rem;
+  padding: 16px 18px 18px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.35);
+  min-height: 180px;
+}
+
+.inginia-db .card h3 {
+  font-size: 1rem;
+  margin-bottom: .25rem;
+}
+
+.inginia-db .card .desc {
+  font-size: .7rem;
+  color: rgba(245, 245, 245, 0.7);
+  margin-bottom: .5rem;
+  line-height: 1.35;
+}
+
+.inginia-db .card .benefit {
+  font-size: .7rem;
+  line-height: 1.35;
+}
+
+.inginia-db .card .benefit strong {
+  color: #9AF251;
+  font-weight: 600;
+}
+
+/* note */
+.inginia-db .note {
+  margin-top: 28px;
+  background: rgba(9, 12, 10, 0.4);
+  border: 1px solid rgba(154, 242, 81, 0.18);
+  border-radius: 1rem;
+  padding: 14px 16px 16px;
+  font-size: .7rem;
+  line-height: 1.4;
+  color: rgba(245, 245, 245, .85);
+}
+
+/* responsive */
+@media (max-width: 720px) {
+  .inginia-db {
+    padding-inline: 16px;
+  }
+  .inginia-db .hero h2 {
+    font-size: 1.7rem;
+  }
+  .inginia-db .card {
+    min-height: 0;
+  }
+}
+/* ===== Read More effect ===== */
+.inginia-db .grid.db-collapsed {
+  max-height: 780px;              /* ความสูงที่เห็นก่อนขยาย */
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.8s ease-in-out;
+}
+
+.inginia-db.expanded .grid.db-collapsed {
+  max-height: 5000px;             /* เปิดเต็ม */
+}
+
+.inginia-db .db-fade {
+  position: relative;
+  margin-top: -120px;
+  height: 120px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.inginia-db.expanded .db-fade {
+  opacity: 0;
+}
+
+.inginia-db .btn-readmore {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+  background: var(--highlight, #9AF251);
+  color: #020202;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: .9rem;
+  box-shadow: 0 8px 30px rgba(154,242,81,.25);
+  transition: all .3s ease;
+}
+
+.inginia-db .btn-readmore:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(154,242,81,.35);
+}
+
+.inginia-db.expanded .btn-readmore {
+  display: none; /* ซ่อนปุ่มเมื่อขยายเต็มแล้ว */
+}
+.hero-media {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero-media .hero-image {
+  width: 100%;        /* กินเต็มคอลัมน์ขวา */
+  max-width: 540px;   /* แต่ไม่เกินนี้ เพื่อไม่ให้ดูใหญ่กว่าตัวหนังสือมากไป */
+  height: auto;
+  display: block;
+}
+/* ===== Pricing Section (InginiaOS style) ===== */
+:root {
+  --bg: #030303;
+  --panel: rgba(6, 6, 6, 0.35);
+  --green: #9AF251;
+  --green-soft: rgba(154, 242, 81, 0.16);
+  --line: rgba(154, 242, 81, 0.28);
+  --text: #f5f5f5;
+  --muted: #9ea09f;
+}
+
+.pricing-section {
+  padding: 80px 16px 100px;
+  background: radial-gradient(circle at top, rgba(154,242,81,0.08), rgba(3,3,3,1) 60%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.pricing-section .h2-grad {
+  font-size: clamp(1.9rem, 3vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+/* Tabs */
+.pricing-tabs {
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 999px;
+  padding: 6px;
+}
+
+.pricing-tabs .tab {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  padding: 8px 22px;
+  border-radius: 999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.15s ease;
+  font-size: 0.92rem;
+}
+
+.pricing-tabs .tab.active {
+  background: rgba(154,242,81,0.14);
+  border: 1px solid rgba(154,242,81,0.35);
+  color: var(--text);
+  box-shadow: 0 10px 30px rgba(154,242,81,0.15);
+}
+
+.tab-content {
+  display: none;
+  width: min(1040px, 100%);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Main card */
+.pricing-card-modern.inginia-card {
+  background: linear-gradient(165deg, rgba(10,10,10,0.45) 0%, rgba(3,3,3,0.15) 100%);
+  border: 1px solid rgba(154,242,81,0.28);
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  padding: 26px 26px 28px;
+  width: min(650px, 100%);
+  margin-inline: auto;
+  box-shadow: 0 12px 46px rgba(0,0,0,0.35);
+}
+
+.pricing-card-modern .card-header {
+  margin-bottom: 20px;
+}
+
+.pricing-card-modern .eyebrow {
+  font-size: 0.78rem;
+  color: var(--green);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.pricing-card-modern .plan-title {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+}
+
+.pricing-card-modern .plan-price {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  margin-bottom: 6px;
+}
+
+.pricing-card-modern .plan-price .per {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 6px;
+}
+
+.pricing-card-modern .sub-text {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Features list */
+.features-list {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.feature-item h4 {
+  font-size: 0.94rem;
+  margin-bottom: 2px;
+}
+
+.feature-item p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Actions */
+.pricing-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #020202;
+  padding: 10px 20px 11px;
+  box-shadow: 0 14px 25px rgba(154,242,81,0.35);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.01);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.02);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 10px 16px 11px;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.035);
+}
+
+/* Addons grid */
+.addons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.addon-card {
+  background: rgba(5,5,5,0.28);
+  border: 1px solid rgba(255,255,255,0.02);
+  border-radius: 16px;
+  padding: 18px 16px 18px;
+  backdrop-filter: blur(10px);
+}
+
+.addon-card h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.addon-card .price {
+  color: var(--green);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.addon-card p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.addon-card button.select-addon {
+  margin-top: 10px;
+  width: 100%;
+  background: rgba(154,242,81,0.12);
+  border: 1px solid rgba(154,242,81,0.25);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 7px 12px 8px;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.addon-card button.select-addon.selected {
+  background: rgba(154,242,81,0.35);
+  border-color: rgba(154,242,81,0.7);
+  color: #020202;
+}
+
+/* Bottom CTA on addons */
+#requestQuote {
+  background: rgba(154,242,81,0.14);
+  border: 1px solid rgba(154,242,81,0.4);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 10px 18px 11px;
+}
+
+/* Responsive */
+@media (max-width: 720px){
+  .pricing-card-modern.inginia-card {
+    width: 100%;
+  }
+  .pricing-actions {
+    flex-direction: column;
+  }
+  .pricing-tabs {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .addons-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* === OVERRIDE : Green Glow Version for Pricing Card === */
+
+.pricing-card-modern.inginia-card {
+  background: radial-gradient(circle at 30% top,
+    rgba(154, 242, 81, 0.28) 0%,
+    rgba(20, 40, 15, 0.9) 55%,
+    rgba(5, 10, 5, 0.95) 100%);
+  border: 1px solid rgba(154, 242, 81, 0.35);
+  box-shadow: 0 0 40px rgba(154, 242, 81, 0.25);
+  backdrop-filter: blur(20px);
+  transition: all 0.25s ease;
+}
+
+.pricing-card-modern.inginia-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 55px rgba(154, 242, 81, 0.4);
+}
+
+/* ปุ่มหลัก – glow เขียว */
+.pricing-card-modern.inginia-card .btn-primary {
+  background: linear-gradient(180deg, #9AF251 0%, #6ddc2f 100%);
+  color: #041804;
+  font-weight: 600;
+  box-shadow: 0 0 20px rgba(154, 242, 81, 0.55);
+}
+.pricing-card-modern.inginia-card .btn-primary:hover {
+  box-shadow: 0 0 28px rgba(154, 242, 81, 0.75);
+  transform: translateY(-1px);
+}
+
+/* ปุ่มรอง – ดำโปร่ง มีขอบเขียวอ่อน */
+.pricing-card-modern.inginia-card .btn-secondary {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(154, 242, 81, 0.35);
+  color: #ffffff;
+  font-weight: 500;
+}
+.pricing-card-modern.inginia-card .btn-secondary:hover {
+  background: rgba(154, 242, 81, 0.12);
+}
+
+/* ปรับหัวข้อย่อยให้ contrast ขึ้น */
+.pricing-card-modern.inginia-card .eyebrow {
+  color: #b6ffb6;
+  text-transform: uppercase;
+}
+.pricing-card-modern.inginia-card .plan-title {
+  color: #fff;
+}
+.pricing-card-modern.inginia-card .plan-price {
+  color: #eaffea;
+}
+.pricing-card-modern.inginia-card .sub-text {
+  color: rgba(255,255,255,0.7);
+}
+
+/* ปรับ border-tab glow */
+.pricing-tabs .tab.active {
+  background: linear-gradient(145deg, rgba(154,242,81,0.25), rgba(154,242,81,0.15));
+  box-shadow: 0 0 16px rgba(154,242,81,0.4);
+  color: #fff;
+}
+
+/* เสริม transition ให้นุ่ม */
+.btn-primary,
+.btn-secondary,
+.pricing-card-modern.inginia-card {
+  transition: all 0.25s ease;
+}
+/* กล่องหลัก */
+.setup-note-box {
+  width: 100%;
+  background: rgba(22, 28, 35, 0.9);
+  border: 1.5px solid #3fc3ff;
+  border-left: 4px solid #3fc3ff;
+  border-radius: 12px;
+  padding: 22px 26px 20px;
+  margin: 28px auto 0;
+  max-width: 720px;
+  text-align: left;
+}
+
+/* หัวเรื่องให้เด่น */
+.setup-note-box .note-content h4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(63, 195, 255, 0.15);
+  border: 1px solid rgba(63, 195, 255, 0.4);
+  color: #e8f9ff;
+  padding: 6px 14px 5px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+/* ย่อหน้าแรก = ทำให้เหมือนบล็อกอธิบายหลัก */
+.setup-note-box .note-content p:nth-of-type(1) {
+  background: rgba(4, 7, 10, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  padding: 10px 12px 9px;
+  line-height: 1.55;
+  color: #f4fdff;
+  margin-bottom: 10px;
+}
+
+/* ย่อหน้าที่สอง = โซน benefit/asset ให้ดึงตา */
+.setup-note-box .note-content p:nth-of-type(2) {
+  background: rgba(20, 116, 158, 0.12);
+  border-left: 3px solid rgba(95, 214, 255, 0.7);
+  border-radius: 8px;
+  padding: 8px 12px 8px 14px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* ย่อหน้าสุดท้าย = ข้อสรุป สั้นเบา */
+.setup-note-box .note-content p:last-of-type {
+  font-size: 0.78rem;
+  opacity: 0.7;
+  margin-top: 6px;
+}
+
+/* เน้นคำที่เป็น value */
+.setup-note-box .note-content strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* จุดนำสายตาเล็กๆ ด้านหน้าประโยคในบล็อกที่สอง */
+.setup-note-box .note-content p:nth-of-type(2)::before {
+  content: "•";
+  color: #59d4ff;
+  margin-right: 6px;
+  font-weight: 700;
+}
+/* === FIX: make DB list horizontally scrollable (override old grid styles) === */
+
+/* ตัวครอบหลักห้ามบังการสกรอลล์ของลูก */
+.inginia-db,
+.inginia-db .page {
+  overflow: visible !important;
+}
+
+/* ถ้าเคยกำหนดให้ .db-collapsed ใช้ grid/overflow ซ่อน → บังคับเป็น flex แนวนอน */
+.inginia-db .grid,
+.inginia-db .grid.db-collapsed {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 16px !important;
+
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  -webkit-overflow-scrolling: touch !important;
+  scroll-snap-type: x mandatory !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  /* เผื่อสไตล์เดิมใส่ white-space หรืออะไรแปลก ๆ */
+  white-space: normal !important;
+
+  /* ทำให้ลากนิ้วได้ลื่นบน iOS/ทัชแพด */
+  touch-action: pan-x !important;
+  overscroll-behavior-x: contain !important;
+
+  padding: 8px 12px 16px !important;
+  margin-left: -12px !important;
+  margin-right: -12px !important;
+}
+
+/* การ์ดต้อง “กว้างกว่าคอนเทนเนอร์” บางส่วน เพื่อเกิดแนวนอนจริง */
+.inginia-db .grid .card {
+  flex: 0 0 78vw !important;   /* มือถือ: กิน ~80% หน้าจอ */
+  max-width: 520px !important; /* เดสก์ท็อปมีเพดาน */
+  min-width: 320px !important; /* กันกรณีโดนย่อจนเล็กกว่า viewport */
+  scroll-snap-align: start !important;
+
+  /* กันสไตล์เดิมมากดให้เต็มความกว้าง */
+  width: auto !important;
+}
+
+/* เผื่อมีคนไปตั้ง overflow:hidden ไว้ที่ .card */
+.inginia-db .grid .card { overflow: visible !important; }
+
+/* ระยะขอบซ้าย-ขวาให้เลื่อนพอดี */
+.inginia-db .grid::before,
+.inginia-db .grid::after {
+  content: "";
+  flex: 0 0 12px;
+}
+
+/* ซ่อนปุ่มอ่านต่อ/แผงเฟดเดิม (หากยังอยู่) */
+.inginia-db .btn-readmore,
+.inginia-db .db-fade {
+  display: none !important;
+}
+
+/* เดสก์ท็อปปรับความกว้างสไลด์ให้สแกนง่าย */
+@media (min-width: 900px) {
+  .inginia-db .grid .card { flex-basis: 460px !important; }
+}
+/* ===== Human Expert + System ===== */
+.human-expert { position: relative; isolation: isolate; }
+
+.human-expert .he-hero{
+  position: relative;
+  min-height: clamp(560px, 70vh, 860px);
+  display: grid;
+  align-items: end;
+  background: #0b0f0c;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 50px rgba(0,0,0,.45);
+}
+
+/* รูปพื้นหลัง (เซ็ตจาก data-img) */
+.human-expert .he-hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background-size: cover; background-position: center 30%;
+  background-image: var(--bg-url, url("https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1600&auto=format&fit=crop"));
+  /* ดึงจาก data-img ถ้ามี */
+}
+.human-expert .he-hero[data-img]::before{
+  background-image: attr(data-img url);
+}
+
+/* ไล่เงา/กราเดียนท์ให้ตัวหนังสืออ่านออกบนภาพ */
+.human-expert .he-overlay{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(60% 80% at 20% 10%, rgba(0,0,0,.15) 0%, rgba(0,0,0,0) 55%) ,
+    linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.72) 78%, rgba(0,0,0,.92) 100%);
+  pointer-events:none;
+}
+
+/* คอนเทนต์หลัก */
+.human-expert .he-content{
+  position: relative; z-index: 2;
+  padding: clamp(18px, 3vw, 28px);
+  padding-bottom: clamp(28px, 5vw, 56px);
+  color: #eaf3e8;
+}
+
+.human-expert .he-eyebrow{
+  font-size: 14px; letter-spacing: .14em; text-transform: uppercase;
+  opacity:.9; margin: 0 0 8px;
+  color:#c6ffd1;
+}
+
+.human-expert .he-title{
+  font-size: clamp(28px, 4.8vw, 54px);
+  line-height: 1.05; margin: 0 0 10px;
+  color:#fff; text-shadow: 0 2px 18px rgba(0,0,0,.35);
+}
+.human-expert .he-sub{
+  max-width: 820px;
+  font-size: clamp(16px, 1.7vw, 20px);
+  color: #d7e7d9; opacity:.95;
+}
+
+/* Chips (glass) */
+.human-expert .he-chips{
+  display:flex; flex-wrap: wrap; gap:10px; margin:16px 0 22px;
+}
+.human-expert .chip{
+  --b:rgba(255,255,255,.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding:8px 12px; border-radius:999px;
+  border:1px solid var(--b);
+  color:#eafff0; font-size:13px; white-space:nowrap;
+  background: linear-gradient(180deg, rgba(18,28,22,.55), rgba(8,12,10,.55));
+  box-shadow: inset 0 0 0 1px rgba(173,255,180,.12), 0 2px 10px rgba(0,0,0,.25);
+}
+
+/* CTA */
+.human-expert .he-cta{ display:flex; gap:14px; align-items:center; }
+.human-expert .btn-primary{
+  appearance:none; border:0; border-radius:999px;
+  padding:14px 22px; font-weight:700;
+  color:#0b1a0e; background: #b7ff6a;
+  box-shadow: 0 10px 24px rgba(130,255,120,.22);
+  cursor:pointer;
+}
+.human-expert .btn-primary:hover{ transform: translateY(-1px); }
+.human-expert .btn-link{
+  color:#caff97; text-decoration:none; font-weight:600;
+  border-bottom:1px solid rgba(202,255,151,.35); padding-bottom:2px;
+}
+
+/* กลาสการ์ดที่ลอยทับบนรูป */
+.human-expert .he-glass{
+  position:absolute; inset: auto 0 28px 0;
+  display:grid; gap:12px;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  padding: 0 18px; z-index:2;
+}
+@media (max-width: 960px){
+  .human-expert .he-glass{
+    grid-template-columns: 1fr 1fr; padding: 0 16px;
+  }
+}
+@media (max-width: 640px){
+  .human-expert .he-glass{
+    grid-template-columns: 1fr; padding: 0 14px;
+  }
+}
+.human-expert .glass{
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding:16px 16px 14px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: linear-gradient(180deg, rgba(18,28,22,.55), rgba(8,12,10,.66));
+  color:#e9ffee;
+  box-shadow: 0 8px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.human-expert .glass h4{
+  margin:0 0 6px; font-size:16px; color:#d8ffd1;
+}
+.human-expert .glass p{
+  margin:0; font-size:14px; color:#cfe3d3; opacity:.95;
+}
+
+/* helper */
+.d-mobile{ display:none; }
+@media (max-width:640px){ .d-mobile{ display:inline; } }
+
+/* ถ้าคุณใช้คอนเทนเนอร์กลาง */
+.container{ max-width: 1180px; margin: 0 auto; }
+/* ========== SAFE OVERRIDES (ไม่ทับ, responsive) ========== */
+
+/* เว้นช่องว่างจาก section ด้านบนให้พอดี (ห้ามติดลบ) */
+.glass-section{
+  position: relative;
+  z-index: 0; /* ไม่ลอยทับปุ่มบน */
+  margin-top: clamp(24px, 5vw, 80px);
+  margin-bottom: clamp(24px, 5vw, 80px);
+}
+
+/* คอนเทนเนอร์แบบกริด auto-fit ให้ responsive แน่นอน */
+.glass-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(12px, 2.4vw, 20px);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 24px);
+}
+
+/* การ์ดกระจก—พื้นฐาน ไม่มีลูกเล่นพิเศษ */
+.glass-card{
+  padding: clamp(16px, 2.8vw, 24px);
+  border-radius: 16px;
+  background: rgba(20, 30, 20, 0.45);   /* คุมคอนทราสต์บนพื้นหลังมืด */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #E8F5E1;
+}
+
+/* ตัวอักษรอ่านง่ายทุกจอ */
+.glass-card h4{
+  margin: 0 0 8px;
+  font-size: clamp(16px, 2.6vw, 20px);
+  line-height: 1.25;
+  color: #C9FFC1;
+}
+.glass-card p{
+  margin: 0;
+  font-size: clamp(14px, 2.2vw, 17px);
+  line-height: 1.6;
+  color: #F2F7F0;
+}
+
+/* มือถือเล็กมาก: เว้นขอบไม่ให้ชนขอบจอ */
+@media (max-width: 480px){
+  .glass-container{ padding-left: 16px; padding-right: 16px; }
+}
+
+/* ========== สำคัญ: ปิดของเก่าที่ทำให้ทับ ========== */
+/* ถ้ามีอยู่ในไฟล์ ให้ลบทิ้ง หรือ override ที่นี่ */
+.glass-section { /* ย้ำอีกครั้งเพื่อชนะกฎเก่า */
+  /* ห้ามมี: margin-top: -100px; position: absolute/fixed; top: -xxpx; */
+}
+/* FORCE: Human Expert background */
+#human-expert .he-hero{
+  --bg-url: url("https://img2.pic.in.th/pic/Gemini_Generated_Image_fbjj2tfbjj2tfbjj.png");
+}
+/* ==== HERO: ขยายภาพอุปกรณ์ให้ใหญ่ขึ้นแบบปลอดภัย ==== */
+
+/* 1) โตขึ้นบนจอใหญ่ */
+.hero-body{
+  grid-template-columns: 1.15fr 1fr;         /* ขยายฝั่งภาพเล็กน้อย */
+}
+
+/* 2) เพิ่มเพดานความกว้างของรูป + ให้สเกลตาม viewport */
+.hero-media{
+  justify-content: flex-end;                 /* ดันภาพไปชิดขวา */
+  overflow: visible;                         /* เผื่อภาพเกินกรอบนิด ๆ */
+}
+.hero-media .hero-image{
+  width: clamp(520px, 48vw, 880px);          /* จากเดิม max 540px → ขยายได้ถึง ~880px */
+  max-width: none;                           /* ยกเลิกข้อจำกัดเก่า */
+  height: auto;
+  transform: translateX(0);                  /* กันสไตล์เก่าที่อาจเลื่อน */
+}
+
+/* 3) ให้บล็อกซ้ายมีที่หายใจเพิ่มเล็กน้อยเวลาภาพใหญ่ */
+.hero{
+  padding-right: min(6vw, 96px);
+}
+
+/* 4) มือถือ/แท็บเล็ต: คงสัดส่วนอ่านง่ายเหมือนเดิม */
+@media (max-width: 980px){
+  .hero-body{ grid-template-columns: 1fr; }
+  .hero-media .hero-image{
+    width: 90vw;           /* ให้เต็มจอมือถือ แต่ไม่ชนขอบ */
+    max-width: 680px;      /* กันเผื่อแท็บเล็ตแนวนอน */
+    margin: 0 auto;
+  }
+}
+/* ภาพล้นออกขอบขวาเล็กน้อยเพื่อความดราม่า (เฉพาะเดสก์ท็อป) */
+@media (min-width: 1200px){
+  .hero-media .hero-image{
+    width: clamp(720px, 54vw, 980px);
+    translate: 4% 0;       /* ขยับออกขวานิด ๆ */
+  }
+}
+/* ===== LOGO IMAGE STYLE ===== */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: clamp(44px, 5vw, 72px);     /* responsive: ขนาดขึ้นกับจอ */
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35)); /* เงาบาง ๆ ให้คม */
+  transition: transform 0.25s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.04);
+}
+
+/* ถ้ามีโหมดมืดหรือพื้นหลังมืด */
+.nav .logo img {
+  mix-blend-mode: normal; /* ป้องกันสีจม */
+}
+/* ==== HERO IMAGE POSITION FIX ==== */
+.human-expert .he-hero::before {
+  background-position: center top; /* จาก center 30% → top */
+  transform: translateY(-10%);
+   /* ยกรูปขึ้นไปอีกเล็กน้อย (ปรับได้ 0–10%) */
+}
+
+/* ถ้ารู้สึกว่ายังอยากให้สูงอีก: ลอง -10% */
+@media (min-width: 1024px) {
+  .human-expert .he-hero::before {
+    transform: translateY(-8%);
+  }
+}
+
+/* ==== FADE OVERLAY FIX ==== */
+.human-expert .he-overlay {
+  background:
+    radial-gradient(60% 80% at 20% 10%, rgba(0,0,0,.18) 0%, rgba(0,0,0,0) 55%),
+    linear-gradient(
+      180deg,
+      rgba(0,0,0,0) 30%,      /* เดิมเริ่มเฟดที่ 35% → ลดลงเพื่อให้เฟดขึ้นสูงกว่า */
+      rgba(0,0,0,.7) 50%,     /* เพิ่มความเข้มกลางภาพ */
+      rgba(0,0,0,.92) 95%     /* ให้ดำขึ้นยาวกว่าเดิม */
+    );
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+/* ===== Inginia DB — Hero image + overlay + glass cards (responsive) ===== */
+.inginia-db{
+  /* ตั้งภาพพื้นหลัง HERO ตรงนี้ */
+  --db-bg: url('https://img2.pic.in.th/pic/d9372b8ee5bc880a2f1f42e8a31a16df.png');
+
+  /* ปรับความสูงบล็อกรูป และระยะซ้อนทับการ์ด */
+  --db-img-h: clamp(320px, 46vw, 560px);
+  --db-overlap: clamp(56px, 8vw, 120px);
+  --db-radius: 22px;
+
+  position: relative;
+  z-index: 0;
+}
+
+/* วาด “รูปพื้นหลัง” ด้านบนสุดของ section */
+.inginia-db::before{
+  content:"";
+  position: absolute;
+  left: 0; top: 0; right: 0;
+  height: var(--db-img-h);
+  background-image: var(--db-bg);
+  background-size: cover;
+  background-position: center calc(50% - 60px);
+  border-radius: var(--db-radius);
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  z-index: 0;  /* ต่ำสุด */
+}
+
+/* ไล่เฟดดำจากกลางลงล่าง เพื่อให้ตัวอักษรอ่านง่าย */
+.inginia-db::after{
+  content:"";
+  position:absolute;
+  left:0; top:0; right:0;
+  height: var(--db-img-h);
+  border-radius: var(--db-radius);
+  background: linear-gradient(180deg,
+              rgba(0,0,0,0.05) 25%,
+              rgba(0,0,0,0.80) 100%);
+  z-index: 1; /* อยู่เหนือรูป */
+}
+
+/* ขยับเนื้อหาให้ไป “ทับ” รูปด้านบน และเว้นช่องให้การ์ดซ้อน */
+.inginia-db .page{
+  position: relative;
+  padding-top: calc(var(--db-img-h) - var(--db-overlap));
+}
+
+/* ทำหัวข้อให้ลอยอยู่บนรูป (ชิดล่างของบล็อกรูป) */
+.inginia-db .hero{
+  position: absolute;
+  left: clamp(16px, 3vw, 24px);
+  right: clamp(16px, 3vw, 24px);
+  top: 0;
+  height: var(--db-img-h);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(16px, 3vw, 28px);
+  color: #f3f8f3;
+  text-shadow: 0 2px 16px rgba(0,0,0,.45);
+  z-index: 2; /* อยู่เหนือ overlay */
+}
+
+.inginia-db .hero h2{
+  margin: 0 0 6px;
+  font-size: clamp(28px, 4.8vw, 44px);
+  line-height: 1.08;
+}
+.inginia-db .hero p{
+  margin: 0;
+  max-width: 900px;
+  font-size: clamp(15px, 1.65vw, 18px);
+  opacity: .95;
+}
+
+/* กริดการ์ด: ซ้อนบนรูปด้วย margin-top ติดลบ */
+.inginia-db .grid{
+  position: relative;
+  z-index: 3; /* การ์ดอยู่สูงกว่าหัวข้อ/overlay */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: calc(var(--db-overlap) * -1);
+  padding-top: var(--db-overlap);
+}
+
+/* การ์ดแก้ว */
+.inginia-db .card{
+  background: linear-gradient(140deg, rgba(10,16,12,.55) 0%, rgba(3,4,3,.22) 100%);
+  border: 1px solid rgba(154,242,81,.10);
+  border-top: 1px solid rgba(154,242,81,.28);
+  border-radius: 18px;
+  padding: 16px 18px 18px;
+  color: #e9f7e9;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 14px 45px rgba(0,0,0,.35);
+}
+.inginia-db .card h3{ font-size: 1.05rem; margin: 0 0 .3rem; }
+.inginia-db .card .desc{ font-size: .86rem; color: rgba(245,245,245,.78); line-height: 1.5; margin-bottom: .5rem; }
+.inginia-db .card .benefit{ font-size: .86rem; line-height: 1.5; }
+.inginia-db .card .benefit strong{ color: #9AF251; }
+
+/* หมายเหตุด้านล่าง */
+.inginia-db .note{
+  margin-top: 22px;
+  background: rgba(9,12,10,.4);
+  border: 1px solid rgba(154,242,81,.18);
+  border-radius: 16px;
+  padding: 14px 16px 16px;
+  font-size: .86rem;
+  color: rgba(245,245,245,.88);
+}
+
+/* มือถือ */
+@media (max-width: 720px){
+  .inginia-db{ --db-img-h: 300px; --db-overlap: 84px; }
+  .inginia-db .grid{ grid-template-columns: 1fr; }
+}
+/* ===== STYLE: DB INTRO HEADING THEME (เหมือน HERO TEXT เดิม) ===== */
+.db-intro .db-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  padding: clamp(16px, 5vw, 48px);
+  color: #fff;
+}
+
+.db-intro .db-content h2 {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.55);
+  margin-bottom: 10px;
+}
+
+.db-intro .db-content p {
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 400;
+  color: rgba(255,255,255,0.75);
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* สีเน้นคำ */
+.db-intro .hl {
+  color: #9AF251;
+}
+
+/* มือถือ */
+@media (max-width: 720px) {
+  .db-intro .db-content h2 {
+    font-size: 24px;
+  }
+  .db-intro .db-content p {
+    font-size: 15px;
+  }
+}
+/* ===== Founding 10 – Elite Founder Club (Scroll Version) ===== */
+
+.founding10 {
+  padding: clamp(40px, 6vw, 72px) 0;
+  background: radial-gradient(circle at top, #07110b 0%, #020403 55%, #020302 100%);
+}
+
+.founding10-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 32px);
+}
+
+.founding10-head {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.founding10-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(154,242,81,0.10);
+  color: #9AF251;
+  border-radius: 999px;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.founding10-head h2 {
+  margin: 10px 0 6px;
+  font-size: clamp(26px, 4vw, 34px);
+  color: #f8fff5;
+}
+
+.founding10-head p {
+  color: rgba(240, 248, 240, 0.78);
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ------------- SCROLL ROW ------------- */
+.founding10-scroll {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  margin-top: 28px;
+}
+
+.founding10-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.founding10-scroll::-webkit-scrollbar-thumb {
+  background: rgba(154,242,81,0.22);
+  border-radius: 999px;
+}
+
+/* CARD */
+.f-card {
+  min-width: 280px;
+  width: 80%;
+  max-width: 320px;
+  background: rgba(4, 7, 5, 0.9);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(154,242,81,0.14);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+  scroll-snap-align: start;
+}
+
+/* CARD IMAGE */
+.f-card-media {
+  position: relative;
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px 16px;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 4px 14px rgba(0,0,0,.7);
+}
+
+/* Gradient Variations */
+.media-1 { background: radial-gradient(circle at top left,#9AF251 0%,#0b2313 48%,#020403 100%); }
+.media-2 { background: radial-gradient(circle at top,#42ffb0 0%,#071d18 50%,#020304 100%); }
+.media-3 { background: radial-gradient(circle at top right,#76a8ff 0%,#071322 52%,#020205 100%); }
+.media-4 { background: radial-gradient(circle at center,#ffb35e 0%,#261208 52%,#040304 100%); }
+
+/* CARD BODY */
+.f-card-body {
+  padding: 14px 16px 18px;
+  color: #f4fff5;
+}
+
+.f-label {
+  font-size: .78rem;
+  color: #9AF251;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 4px;
+}
+
+.f-card-body h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.f-card-body p {
+  color: rgba(235,245,235,0.92);
+  font-size: .9rem;
+  line-height: 1.55;
+}
+.highlight-green {
+  color: #9AF251 !important;
+}
+/* SECTION WRAPPER — WHITE APPLE STYLE */
+.toolstack {
+  padding: 80px 0;
+  background: #ffffff;      /* สีขาวล้วน */
+  color: #111111;           /* ตัวอักษรสีดำ */
+}
+
+.toolstack-inner {
+  width: min(1200px, 94%);
+  margin: 0 auto;
+}
+
+/* 2-COLUMN LAYOUT */
+.toolstack-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: 48px;
+  align-items: center;
+}
+
+/* LEFT COPY — APPLE STYLE */
+.toolstack-copy h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+  font-weight: 700;
+  color: #111;
+}
+
+.toolstack-copy p {
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.55;
+  opacity: .8;
+  max-width: 430px;
+}
+
+/* LOGO GRID (Apple style) */
+.toolstack-logos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* LOGO TILE — Like Apple */
+.logo-item {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Apple-style soft shadow */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08),
+              0 1px 2px rgba(0,0,0,0.04);
+
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* THE LOGOS — KEEP ORIGINAL SHAPE */
+.logo-item img {
+  max-height: 42px;    /* ปรับขนาดภาพรวม */
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* MORE TILE */
+.more-tile {
+  border: 1px dashed rgba(0,0,0,0.15) !important;
+  background: #fafafa;
+}
+.more-tile span {
+  font-size: 14px;
+  color: #444;
+  opacity: .8;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .toolstack-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .toolstack-logos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .toolstack {
+    padding: 60px 0;
+  }
+  .toolstack-logos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .logo-item {
+    padding: 16px 14px;
+    border-radius: 18px;
+  }
+  .logo-item img {
+    max-height: 34px;
+  }
+}
+:root {
+  --green: #9AF251;
+  --text-main: #fff;
+  --text-soft: #d1d1d1;
+  --card-bg: #0a0a0a;
+}
+
+/* SECTION WRAPPER */
+.real-screenshots {
+  padding: 70px 0;
+  background: #040404;
+  color: var(--text-main);
+}
+
+.rs-inner {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+/* HEAD */
+.rs-head h2 {
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.rs-head p {
+  color: var(--text-soft);
+  font-size: 1rem;
+  max-width: 620px;
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+/* HORIZONTAL SCROLL */
+.rs-row {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px 6px 20px;
+  margin: 0 -6px; 
+  -webkit-overflow-scrolling: touch;
+}
+
+/* optional scrollbar */
+.rs-row::-webkit-scrollbar {
+  height: 6px;
+}
+.rs-row::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.18);
+  border-radius: 999px;
+}
+
+/* CARD STYLE */
+.rs-card {
+  flex: 0 0 76%;
+  max-width: 360px;
+  background: var(--card-bg);
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 35px rgba(0,0,0,0.6);
+}
+
+/* IMAGE */
+.rs-img {
+  position: relative;
+  width: 100%;
+  padding-bottom: 150%; /* vertical card style */
+}
+
+.rs-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* TEXT */
+.rs-body {
+  padding: 14px 18px 20px;
+}
+
+.rs-body h3 {
+  font-size: 1.05rem;
+  margin: 0 0 6px;
+  color: var(--green);
+}
+
+.rs-body p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0;
+  color: var(--text-soft);
+}
+
+/* DESKTOP */
+@media (min-width: 860px) {
+  .rs-card {
+    flex: 0 0 310px;
+  }
+}
+/* ===== Timeline Section: 2-Day Process ===== */
+
+/* ใช้สีเขียวเข้มขึ้น แต่ยังอยู่ใน family ของ InginiaOS */
+:root {
+  --green: #9AF251;
+  --green-strong: #6ddc2f;  /* ใช้กับเส้นแกนกลาง */
+}
+
+.timeline-section {
+  padding: 72px 0 80px;
+  background: #ffffff;
+  color: #111111;
+}
+
+.timeline-inner {
+  width: min(1120px, 94%);
+  margin: 0 auto;
+}
+
+.timeline-head {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+.timeline-head h2 {
+  font-size: clamp(1.9rem, 3.2vw, 2.4rem);
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.timeline-head p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555555;
+}
+
+/* แกนกลางสีเขียวเข้ม */
+.timeline-track {
+  position: relative;
+  padding: 10px 0 40px;
+  margin-top: 12px;
+}
+.timeline-track::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  border-radius: 999px;
+  background: var(--green-strong);
+  box-shadow: 0 0 0 1px rgba(109, 220, 47, 0.15);
+  z-index: 0;
+}
+
+/* ITEM */
+.timeline-item {
+  position: relative;
+  margin: 40px 0;
+  z-index: 1;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 28px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid var(--green-strong);
+  transform: translateX(-50%);
+  box-shadow: 0 0 0 3px rgba(109, 220, 47, 0.18);
+}
+
+/* การ์ดหลัก */
+.timeline-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+  padding: 20px 22px 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 18px;
+}
+
+.timeline-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.timeline-step {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(109, 220, 47, 0.12);
+  color: #1a310b;
+  font-weight: 600;
+}
+.timeline-label {
+  font-size: 0.85rem;
+  color: #777777;
+}
+
+.timeline-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.timeline-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444444;
+  margin-bottom: 8px;
+}
+.timeline-card ul {
+  padding-left: 18px;
+  margin: 0;
+  font-size: 0.92rem;
+  color: #444444;
+  line-height: 1.6;
+}
+.timeline-card li + li {
+  margin-top: 4px;
+}
+
+/* รูป mockup (BG ขาว) */
+.timeline-media {
+  align-self: center;
+}
+.timeline-media img {
+  width: 100%;
+  display: block;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
+}
+
+/* จัดซ้าย-ขวาบนจอใหญ่ให้เหมือน infographic */
+@media (min-width: 900px) {
+  .timeline-item.left .timeline-card {
+    max-width: 460px;
+    margin-right: auto;
+  }
+  .timeline-item.right .timeline-card {
+    max-width: 460px;
+    margin-left: auto;
+  }
+}
+
+/* FOOTNOTE */
+.timeline-footnote {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: #555555;
+  text-align: center;
+}
+
+/* ===== Responsive: มือถือ & แท็บเล็ต ===== */
+@media (max-width: 900px) {
+  /* เลื่อนเส้นแกนไปซ้าย แต่ยังอยู่ครบ ไม่หาย */
+  .timeline-track {
+    padding-left: 32px;
+  }
+  .timeline-track::before {
+    left: 24px;
+  }
+  .timeline-item::before {
+    left: 24px;
+  }
+
+  .timeline-card {
+    margin-left: 32px;
+    grid-template-columns: 1fr;  /* รูปลงไปอยู่ใต้ตัวหนังสือ */
+  }
+
+  .timeline-media {
+    order: 2;       /* รูปไว้ล่าง */
+  }
+}
+
+@media (max-width: 600px) {
+  .timeline-section {
+    padding: 56px 0 64px;
+  }
+  .timeline-head h2 {
+    font-size: 1.6rem;
+  }
+  .timeline-card {
+    padding: 18px 18px 20px;
+  }
+}
+/* ===== FOLLOW-UP SECTION ===== */
+
+.followup-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.followup-inner {
+  width: min(1120px, 94%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.followup-inner h2 {
+  font-size: clamp(1.8rem, 3vw, 2.2rem);
+  margin-bottom: 12px;
+}
+
+.followup-sub {
+  color: #555;
+  max-width: 680px;
+  margin: 0 auto 40px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.followup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+.followup-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px 22px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+.followup-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.followup-card p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+@media (max-width: 600px) {
+  .followup-card {
+    padding: 20px 18px;
+  }
+}
+/* ===== FOLLOW-UP: TITLE STRONGER ===== */
+.followup-inner h2 {
+  font-size: clamp(1.9rem, 4vw, 2.3rem);
+  font-weight: 700;
+  color: #0E0E0E;
+  margin-bottom: 10px;
+}
+
+.followup-sub {
+  font-size: 1.05rem;
+  color: #333;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+/* ===== FOLLOW-UP: CARD SCROLL STYLE ===== */
+
+.followup-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.followup-grid::-webkit-scrollbar {
+  display: none;  /* ซ่อน scrollbar ให้สวยแบบ Apple */
+}
+
+.followup-card {
+  min-width: 80%;
+  scroll-snap-align: start;
+  background: #fff;
+  border-radius: 22px;
+  padding: 26px 24px;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+  flex-shrink: 0;
+}
+
+@media (min-width: 900px) {
+  .followup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+  }
+  .followup-card {
+    min-width: unset;
+  }
+}
+
+/* ===== FOLLOW-UP: CARD TITLE MORE VISIBLE ===== */
+
+.followup-card h3 {
+  margin-bottom: 12px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #000;  /* เข้มขึ้น */
+}
+
+.followup-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* ปรับไอคอนให้ใหญ่และคมขึ้น */
+.followup-card h3::before {
+  font-size: 1.2rem;
+}
+/* === WHO FITS SECTION === */
+
+.fit-section {
+  padding: 72px 16px 64px;
+  background: #fafafa;
+}
+
+.fit-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.fit-head {
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.fit-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0f5132;
+  background: rgba(56, 196, 137, 0.12);
+  margin-bottom: 12px;
+}
+
+.fit-head h2 {
+  font-size: 26px;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+
+.fit-sub {
+  margin: 0;
+  color: #5f6368;
+  font-size: 15px;
+}
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+/* base card */
+
+.fit-card {
+  position: relative;
+  border-radius: 24px;
+  padding: 24px 20px 22px;
+  overflow: hidden;
+  box-shadow:
+    0 14px 35px rgba(15, 23, 42, 0.06),
+    0 2px 8px rgba(15, 23, 42, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.fit-card h3 {
+  font-size: 18px;
+  margin: 10px 0 12px;
+}
+
+.fit-card ul {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.fit-card li + li {
+  margin-top: 4px;
+}
+
+.fit-card .fit-note {
+  margin-top: 14px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* floating label on top of card */
+
+.fit-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* YES card — สีสด */
+
+.fit-card--yes {
+  background: radial-gradient(circle at top left, #00f2a9 0, #00c26f 35%, #009f5a 70%, #00814a 100%);
+  color: #ffffff;
+}
+
+.fit-card--yes .fit-label {
+  background: rgba(255, 255, 255, 0.14);
+  color: #eafff5;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.fit-card--yes ul li::marker {
+  color: #eafff5;
+}
+
+/* NO card — ขาวดำ / เบรกโทน */
+
+.fit-card--no {
+  background: #ffffff;
+  color: #4a4a4a;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.fit-card--no::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at top left, rgba(0, 0, 0, 0.06), transparent 55%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.fit-card--no .fit-label {
+  background: rgba(0, 0, 0, 0.04);
+  color: #5f5f5f;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.fit-card--no h3,
+.fit-card--no ul,
+.fit-card--no .fit-note {
+  position: relative;
+  z-index: 1;
+}
+
+/* hover (desktop only) */
+
+@media (hover: hover) and (pointer: fine) {
+  .fit-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 18px 40px rgba(15, 23, 42, 0.10),
+      0 4px 10px rgba(15, 23, 42, 0.06);
+  }
+}
+
+/* desktop layout */
+
+@media (min-width: 768px) {
+  .fit-section {
+    padding: 88px 24px 72px;
+  }
+
+  .fit-head {
+    max-width: 720px;
+    margin-bottom: 40px;
+  }
+
+  .fit-head h2 {
+    font-size: 30px;
+  }
+
+  .fit-sub {
+    font-size: 16px;
+  }
+
+  .fit-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .fit-card {
+    padding: 26px 24px 22px;
+  }
+}
+/* === WHO FITS SECTION — DARK MODE === */
+
+.fit-section {
+  padding: 72px 16px 64px;
+  background: #000; /* เปลี่ยนพื้นหลังเป็นดำ */
+  color: #fff; /* ตัวอักษรพื้นฐานเป็นสีขาว */
+}
+
+.fit-head h2 {
+  color: #ffffff;
+}
+
+.fit-sub {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* YES card — ยังคงสีเดิม */
+.fit-card--yes {
+  background: radial-gradient(circle at top left, #00f2a9 0, #00c26f 35%, #009f5a 70%, #00814a 100%);
+  color: #ffffff;
+}
+
+/* NO card — เปลี่ยน backdrop ให้ไม่โดดจากดำมากเกินไป */
+.fit-card--no {
+  background: #111; /* จากขาว → เทาดำ */
+  color: #e5e5e5;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.fit-card--no::before {
+  background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent 55%);
+}
+
+.fit-card--no .fit-label {
+  background: rgba(255, 255, 255, 0.06);
+  color: #d5d5d5;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* list bullet สีขาวให้สุภาพขึ้น */
+.fit-card--no ul li::marker {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* label บนสุด */
+.fit-label {
+  color: #fff;
+}
+
+/* hover state */
+@media (hover: hover) and (pointer: fine) {
+  .fit-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.4),
+      0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* desktop_layout */
+@media (min-width: 768px) {
+  .fit-section {
+    padding: 88px 24px 72px;
+  }
+}
+/* === HORIZONTAL CARD SCROLL ON MOBILE (NO HTML CHANGE) === */
+@media (max-width: 768px) {
+  /* กลุ่ม container ที่เคยเป็น grid บนลงล่าง */
+  .core-grid,
+  .why-grid,
+  .rs-row,
+  .inginia-db .grid,
+  .followup-grid,
+  .founding10-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 16px;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* การ์ดแต่ละใบให้มีความกว้างประมาณ 80–90vw */
+  .core-card,
+  .why-card,
+  .rs-card,
+  .fit-card,
+  .inginia-db .card,
+  .followup-card,
+  .f-card {
+    flex: 0 0 82vw;
+    scroll-snap-align: start;
+  }
+
+  /* กัน padding ใน container บางตัวให้ไม่แน่นเกิน */
+  .inginia-db .page,
+  .founding10-inner,
+  .followup-inner {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+}
+/* === OVERRIDE: FIT SECTION DARK MODE === */
+.fit-section {
+  background: #020617; /* ดำอมกรมท่าแบบ inginiaOS */
+  color: #f9fafb;
+}
+
+.fit-head h2 {
+  color: #f9fafb;
+}
+
+.fit-sub {
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.fit-card--no {
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+.fit-card--no::before {
+  background-image: radial-gradient(circle at top left, rgba(15, 23, 42, 0.8), transparent 55%);
+}
+
+.fit-card--no .fit-label {
+  background: rgba(15, 23, 42, 0.7);
+  color: #e5e7eb;
+  border-color: rgba(148, 163, 184, 0.8);
+}
+
+.fit-card--yes {
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.7),
+    0 4px 10px rgba(15, 23, 42, 0.4);
+}
+/* ปุ่ม toggle */
+.timeline-toggle {
+  margin-top: 16px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #00c26f;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 194, 111, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.timeline-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(0, 194, 111, 0.4);
+}
+
+.timeline-toggle:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 194, 111, 0.3);
+}
+
+/* พับเนื้อหาเมื่อมี is-collapsed */
+.timeline-section.is-collapsed .timeline-track,
+.timeline-section.is-collapsed .timeline-footnote {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(-6px);
+}
+
+.timeline-section .timeline-track,
+.timeline-section .timeline-footnote {
+  max-height: 2000px; /* พอให้ขยายได้ทั้งบล็อก */
+  opacity: 1;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* เปลี่ยนข้อความปุ่มนิดหน่อย (optional ใช้ JS แทนก็ได้) */
+.timeline-section.is-collapsed .timeline-toggle::after {
+  content: "";
+}
+/* ========== FIX 1: ให้หัวข้อ "แค่ 2 วัน..." ตัวเท่ากับ
+   "หลังจากระบบเริ่มทำงาน..." ========== */
+
+.timeline-head h2 {
+  font-size: clamp(1.9rem, 4vw, 2.3rem) !important;
+  font-weight: 700;
+}
+
+/* กันเคส mobile ที่ media query เดิมไปลดลงเหลือ 1.6rem */
+@media (max-width: 600px) {
+  .timeline-head h2 {
+    font-size: clamp(1.9rem, 4vw, 2.3rem) !important;
+  }
+}
+
+
+/* ========== FIX 2: บีบช่องว่างระหว่างปุ่ม 48 ชม. กับ
+   หัวข้อ "หลังจากระบบเริ่มทำงาน..." ========== */
+
+/* ลด padding ล่างของ section แรก (แค่ 2 วัน...) */
+.timeline-section {
+  padding-bottom: 28px !important;
+}
+
+/* เผื่อมี margin/padding ที่ bottom ใน track & footnote */
+.timeline-section .timeline-track,
+.timeline-section .timeline-footnote {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* ลด padding บนของ section ถัดไป */
+.followup-section {
+  padding-top: 24px !important;
+  margin-top: 0 !important;
+}
+
+/* ยาแรง: ดึง section "หลังจากระบบเริ่มทำงาน..." ขึ้นไปชิดปุ่มอีกนิด */
+.timeline-section + .followup-section {
+  margin-top: -18px !important;   /* อยากชิดกว่านี้ลดเลขลงได้ เช่น -24px */
+}
+/* ===== FIX: Follow-up cards — show 2–3 cards on mobile ===== */
+
+@media (max-width: 768px) {
+
+  /* ให้แถวสไลด์แบบ 2–3 ใบครึ่ง */
+  .followup-grid {
+    display: flex !important;
+    overflow-x: auto !important;
+    gap: 16px !important;
+    padding: 6px 0 18px !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* กำหนดความกว้างการ์ดใหม่แบบสวย */
+  .followup-card {
+    flex: 0 0 55vw !important;       /* ← สัดส่วนนี้จะเห็น 2–3 ใบครึ่งบนจอ */
+    max-width: 320px !important;
+    min-width: 240px !important;
+    scroll-snap-align: start;
+  }
+}
+
+/* Desktop ยังเป็น grid ปกติ */
+@media (min-width: 900px) {
+  .followup-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    overflow: visible !important;
+  }
+  .followup-card {
+    min-width: unset !important;
+  }
+}
+/* ===== MONTH 1 – INSTALL BRAIN SECTION ===== */
+
+.install-month1 {
+  background: #040404;
+  color: #f9fafb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  padding: 72px 0 80px;
+}
+
+.install-month1 .install-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* HEAD + PRICE */
+
+.install-month1 .install-eyebrow {
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9AF251;
+  margin-bottom: 8px;
+}
+
+.install-month1 .install-title {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  line-height: 1.3;
+  margin: 0 0 10px;
+}
+
+.install-month1 .install-subtitle {
+  font-size: 0.98rem;
+  color: rgba(226, 232, 240, 0.82);
+  max-width: 720px;
+  margin: 0 0 24px;
+}
+
+.install-month1 .install-price {
+  text-align: left;
+}
+
+.install-month1 .price-label {
+  display: block;
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.9);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.install-month1 .price-number {
+  display: block;
+  font-size: clamp(3rem, 6vw, 4rem);
+  font-weight: 200;
+  line-height: 1;
+  background: linear-gradient(180deg, #e8f7ff 0%, #8fb1c4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.install-month1 .price-unit {
+  display: block;
+  margin-top: 6px;
+  font-size: 1rem;
+  color: rgba(230, 240, 245, 0.9);
+}
+
+.install-month1 .price-note {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: rgba(198, 210, 220, 0.9);
+}
+
+/* REASONS + CARDS */
+
+.install-month1 .install-reasons {
+  margin-top: 38px;
+}
+
+.install-month1 .reasons-title {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: rgba(226, 232, 240, 0.92);
+}
+
+/* แถวการ์ด – mobile = เลื่อนข้าง, desktop = grid */
+
+.install-month1 .reasons-scroller {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px 4px 16px;
+  margin: 0 -4px 18px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.install-month1 .reasons-scroller::-webkit-scrollbar {
+  height: 6px;
+}
+
+.install-month1 .reasons-scroller::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.5);
+  border-radius: 999px;
+}
+
+/* การ์ดแต่ละใบ */
+
+.install-month1 .reason-card {
+  flex: 0 0 78vw;              /* เห็นประมาณ 1.5–2 ใบบนจอมือถือ */
+  max-width: 360px;
+  scroll-snap-align: start;
+
+  background: radial-gradient(circle at top left,
+              rgba(154, 242, 81, 0.16) 0,
+              rgba(15, 23, 42, 0.98) 42%,
+              #020617 100%);
+  border-radius: 22px;
+  padding: 18px 18px 18px;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.install-month1 .reason-card h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: #e5fbe5;
+}
+
+.install-month1 .reason-lead {
+  font-size: 0.88rem;
+  color: rgba(226, 232, 240, 0.9);
+  margin: 0;
+}
+
+.install-month1 .reason-card ul {
+  margin: 4px 0 0;
+  padding-left: 18px;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: rgba(226, 232, 240, 0.9);
+}
+
+.install-month1 .reason-card li + li {
+  margin-top: 2px;
+}
+
+/* FOOTNOTE */
+
+.install-month1 .reasons-footnote {
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.9);
+  max-width: 780px;
+}
+
+/* DESKTOP: ใช้ grid 3 คอลัมน์ */
+
+@media (min-width: 960px) {
+  .install-month1 .install-head {
+    max-width: 720px;
+  }
+
+  .install-month1 .reasons-scroller {
+    margin: 0 0 22px;
+    padding: 0;
+    overflow: visible;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .install-month1 .reason-card {
+    flex: 0 0 auto;   /* ให้ grid control เอง */
+    max-width: none;
+  }
+}
+
+/* จอเล็กมาก – หดการ์ดให้เห็น 2–3 ใบครึ่ง */
+
+@media (max-width: 480px) {
+  .install-month1 .reason-card {
+    flex-basis: 72vw;
+  }
+}
+/* FORCE SUKHUMVIT FOR THE ENTIRE INSTALL SECTION */
+.install-container,
+.install-container *,
+.install-month1,
+.install-month1 * {
+  font-family: "Sukhumvit Set", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+/* BEFORE–AFTER TRANSFORMATION */
+.transform-section {
+  padding: 80px 20px;
+  background: radial-gradient(circle at top, #101322 0%, #050509 55%, #020308 100%);
+  color: #f7f7f7;
+}
+
+.transform-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.transform-head {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.transform-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 12px;
+}
+
+.transform-head h2 {
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.transform-sub {
+  max-width: 620px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* GRID */
+.transform-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.transform-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 20px 20px 22px;
+  background: rgba(7, 9, 18, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Labels */
+.transform-label {
+  font-size: 0.8rem;
+  opacity: 0.75;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Mockup frame */
+.transform-media {
+  margin-top: 4px;
+}
+
+.transform-mockup-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: radial-gradient(circle at top, #1a1c24 0%, #090a0f 70%);
+}
+
+.transform-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* BEFORE = ขาวดำหม่น ๆ */
+.before-img {
+  filter: grayscale(100%) contrast(0.9) brightness(0.95);
+  transform: scale(1.03);
+}
+
+/* AFTER = สีชัด มีมิติ */
+.after-frame {
+  background: radial-gradient(circle at top left, #b9ff66 0%, #1bffbf 26%, #050b16 70%);
+  box-shadow: 0 18px 45px rgba(6, 255, 167, 0.35);
+}
+
+.after-img {
+  transform: translateY(2px) scale(1.03);
+}
+
+/* Pill บน mockup สี */
+.transform-pill {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  backdrop-filter: blur(10px);
+  background: rgba(5, 8, 16, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* TEXT */
+.transform-body h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.transform-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transform-body li {
+  position: relative;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding-left: 18px;
+  margin-bottom: 4px;
+  opacity: 0.9;
+}
+
+.transform-body li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #b9ff66;
+}
+
+/* ก่อน–หลังให้ mood ต่างกันเล็กน้อย */
+.transform-card.is-before {
+  background: radial-gradient(circle at top, #14151a 0%, #050509 70%);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.transform-card.is-after {
+  background: radial-gradient(circle at top, #0f1724 0%, #050a14 70%);
+  border-color: rgba(185, 255, 102, 0.5);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .transform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transform-card.is-after {
+    order: -1; /* ให้ AFTER ขึ้นก่อนบนมือถือ ถ้าต้องการโชว์ภาพอนาคตนำหน้า */
+  }
+}
+
+@media (max-width: 640px) {
+  .transform-section {
+    padding: 56px 16px;
+  }
+
+  .transform-card {
+    padding: 18px 16px 20px;
+  }
+
+  .transform-body h3 {
+    font-size: 0.98rem;
+  }
+
+  .transform-body li {
+    font-size: 0.86rem;
+  }
+}
+@media (max-width: 900px) {
+  .transform-card.is-after {
+    order: initial;
+  }
+}
+/* ————————————————
+   WHAT YOU GET – GLOBAL WRAPPER
+——————————————— */
+.wy-section {
+  padding: 80px 0;
+  background: #fff;
+  font-family: 'Sukhumvit Set', sans-serif;
+}
+
+.wy-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.wy-head {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.wy-tag {
+  color: #15803d;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.wy-title {
+  font-size: 40px;
+  color: #0f172a;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.wy-sub {
+  color: #475569;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+
+/* ————————————————
+   SCROLL AREA
+——————————————— */
+.wy-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 22px;
+  padding-bottom: 20px;
+  scroll-snap-type: x mandatory;
+}
+
+.wy-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.wy-scroll::-webkit-scrollbar-thumb {
+  background: #d1d1d1;
+  border-radius: 4px;
+}
+
+
+/* ————————————————
+   CARD
+——————————————— */
+.wy-card {
+  min-width: 340px;
+  max-width: 340px;
+  background: #ecfdf5;
+  border-radius: 26px;
+  padding: 0 22px 28px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  box-shadow: 0 8px 22px rgba(20, 83, 45, 0.07);
+  border: 1px solid #d1fae5;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.wy-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(20, 83, 45, 0.12);
+}
+
+
+/* ————————————————
+   CARD TOP IMAGE (Apple-style banner)
+——————————————— */
+.wy-thumb {
+  width: 100%;
+  height: 130px; 
+  border-radius: 22px;
+  overflow: hidden;
+  background: #d1fae5;
+  margin: 22px 0 18px;
+  box-shadow: 0 5px 14px rgba(16, 185, 129, 0.15);
+}
+
+.wy-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ————————————————
+   TYPOGRAPHY INSIDE CARD
+——————————————— */
+.wy-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #047857;
+  margin-bottom: 10px;
+}
+
+.wy-card-title {
+  font-size: 22px;
+  line-height: 1.45;
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.wy-card-lead {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #334155;
+  margin-bottom: 14px;
+}
+
+
+/* ————————————————
+   BULLET LIST
+——————————————— */
+.wy-list {
+  padding-left: 20px;
+  margin: 0;
+  color: #0f172a;
+}
+
+.wy-list li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+
+/* ————————————————
+   RESPONSIVE
+——————————————— */
+@media (max-width: 768px) {
+  .wy-title { font-size: 32px; }
+  .wy-sub { font-size: 18px; }
+
+  .wy-card {
+    min-width: 78%;
+    max-width: 78%;
+  }
+
+  .wy-thumb {
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wy-title { font-size: 28px; }
+  .wy-card-title { font-size: 20px; }
+  .wy-card-lead { font-size: 15px; }
+  .wy-thumb { height: 110px; }
+}
+/* ===============================
+   RESPONSIBILITY SPLIT SECTION
+   =============================== */
+
+.rsplit-section {
+  padding: 80px 16px;
+  background: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+}
+
+.rsplit-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* HEAD */
+.rsplit-head {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.rsplit-tag {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #16a34a; /* เขียว */
+  margin-bottom: 8px;
+}
+
+.rsplit-title {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  color: #0b1120; /* ดำเข้ม */
+  margin-bottom: 12px;
+}
+
+.rsplit-sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #374151; /* เทาเข้ม อ่านง่ายขึ้น */
+}
+
+/* TOP NUMBERS */
+.rsplit-metrics {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin: 40px 0 32px;
+  flex-wrap: wrap;
+}
+
+.rsplit-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 160px;
+}
+
+.rsplit-metric-number {
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.rsplit-metric-number--client {
+  color: #4b5563; /* เทาเข้ม */
+}
+
+.rsplit-metric-number--team {
+  color: #16a34a; /* เขียวหลัก */
+}
+
+.rsplit-metric-label {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* BARS WRAPPER */
+.rsplit-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* SINGLE BAR */
+.rsplit-bar {
+  background: #f3f4f6;
+  border-radius: 20px;
+  padding: 18px 18px 20px;
+}
+
+.rsplit-bar-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.rsplit-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+}
+
+/* ความยาวแถบ */
+.rsplit-bar-fill--client {
+  width: 5%;
+  background: #9ca3af; /* เทา */
+}
+
+.rsplit-bar-fill--team {
+  width: 95%;
+  background: #22c55e; /* เขียวสด */
+}
+
+.rsplit-bar-fill--asset {
+  width: 60%;
+  background: #a7f3d0; /* เขียวอ่อน */
+}
+
+/* TEXT INSIDE BAR */
+.rsplit-bar-text {
+  color: #111827;
+}
+
+.rsplit-bar-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.rsplit-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.rsplit-list--compact li + li {
+  margin-top: 2px;
+}
+
+.rsplit-note,
+.rsplit-note-small {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.rsplit-note-small {
+  opacity: 0.9;
+}
+
+/* LAYOUT SHORTER ON DESKTOP */
+@media (min-width: 900px) {
+  .rsplit-bars {
+    gap: 20px;
+  }
+
+  .rsplit-bar {
+    display: grid;
+    grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+    column-gap: 32px;
+    align-items: flex-start;
+  }
+
+  .rsplit-bar-track {
+    grid-column: 1 / -1;
+  }
+}
+/* ยาแรง: เซ็ตฟอนต์ทั้งหน้าเว็บให้เป็น stack เดียวกัน */
+html, body {
+  font-family: "Sukhumvit Set", "Prompt", -apple-system, system-ui,
+               "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ถ้ากลัวว่ามี class อื่นไป override อีก ใช้ชุดนี้เสริมได้ */
+*,
+*::before,
+*::after {
+  font-family: "Sukhumvit Set", "Prompt", -apple-system, system-ui,
+               "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !important;
+}
+/* หัวข้อหลักของ Responsibility Section */
+.rs-main-headline {
+  font-family: 'Sukhumvit Set', sans-serif !important;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);  /* ใหญ่ตามหน้าจอ */
+  font-weight: 800;
+  color: #0a0a0a;  /* ดำอ่านง่าย */
+  line-height: 1.25;
+  text-align: center;
+  margin: 0 auto 1.2rem;
+}
+
+/* หัวข้อรอง */
+.rs-sub-headline {
+  font-family: 'Sukhumvit Set', sans-serif !important;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  color: #111;
+  line-height: 1.4;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.4rem;
+}
+/* ============================
+   FORCE BIG SECTION TITLE
+   For section #what-you-get only
+   ============================ */
+
+#what-you-get .wy-head .wy-title {
+  font-family: 'Sukhumvit Set', 'Kanit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(32px, 6vw, 54px) !important; /* ใหญ่ขึ้นแบบ responsive */
+  line-height: 1.15 !important;
+  color: #0A0A0A !important; /* ดำคมแบบ Apple */
+  margin-bottom: 10px !important;
+}
+
+/* TAG ด้านบน */
+#what-you-get .wy-head .wy-tag {
+  font-family: 'Sukhumvit Set', 'Kanit', 'Inter', sans-serif !important;
+  font-size: clamp(15px, 2.8vw, 20px) !important;
+  font-weight: 600;
+  color: #00A060 !important; /* เขียวเงียบแบบ Apple */
+  margin-bottom: 6px !important;
+}
+
+/* SUBTITLE */
+#what-you-get .wy-head .wy-sub {
+  font-family: 'Sukhumvit Set', 'Kanit', 'Inter', sans-serif !important;
+  font-size: clamp(16px, 3vw, 22px) !important;
+  line-height: 1.45;
+  color: #444 !important; 
+  max-width: 750px;
+  margin: 0 auto 20px auto !important;
+}
+
+/* ลดช่องว่างด้านบนของทั้งหัวข้อ */
+#what-you-get .wy-head {
+  padding-top: 40px !important;   /* จากเดิม ~80–100 */
+  margin-top: -10px !important;
+}
+
+/* เผื่อเจอ device ดื้อฟอนต์ — บังคับแบบยาแรง */
+#what-you-get * {
+  font-family: 'Sukhumvit Set', 'Kanit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+/* ===============================
+   ADD-ONS PRICE BOOSTER (SAFE)
+   =============================== */
+
+#addons .addon-card .price {
+  font-family: 'Sukhumvit Set', 'Kanit', 'Inter', -apple-system, sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(32px, 6vw, 54px) !important;  /* ระดับ h1 */
+  line-height: 1.1 !important;
+  color: #D8FFD0 !important; /* เขียวอ่อนอ่านง่ายบนพื้นเข้ม */
+  margin: 20px 0 10px 0 !important;
+  display: block;
+}
+
+/* ถ้าต้องการให้สีเด่นแบบ Apple Power-Metric */
+#addons .addon-card .price::first-line {
+  background: linear-gradient(90deg, #94FF71 0%, #58CC34 50%, #37B212 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ทำให้การ์ด Add-on เรียบร้อย ไม่พอง */
+#addons .addon-card {
+  padding-top: 25px !important;
+}
+
+/* ปรับ h3 ให้อ่านง่ายขึ้น ไม่โดนราคาแย่งซีนเกินไป */
+#addons .addon-card h3 {
+  font-size: clamp(20px, 3.2vw, 26px);
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #FFFFFF;
 }
