@@ -1163,7 +1163,7 @@ body {
 }
 /* FORCE: Human Expert background */
 #human-expert .he-hero{
-  --bg-url: url("https://img2.pic.in.th/pic/human-expert.png");
+  --bg-url: url("https://img2.pic.in.th/pic/Gemini_Generated_Image_fbjj2tfbjj2tfbjj.png");
 }
 /* ==== HERO: ขยายภาพอุปกรณ์ให้ใหญ่ขึ้นแบบปลอดภัย ==== */
 
@@ -2715,4 +2715,649 @@ body {
 .install-month1,
 .install-month1 * {
   font-family: "Sukhumvit Set", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
+/* BEFORE–AFTER TRANSFORMATION */
+.transform-section {
+  padding: 80px 20px;
+  background: radial-gradient(circle at top, #101322 0%, #050509 55%, #020308 100%);
+  color: #f7f7f7;
+}
+
+.transform-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.transform-head {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.transform-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 12px;
+}
+
+.transform-head h2 {
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.transform-sub {
+  max-width: 620px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* GRID */
+.transform-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.transform-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 20px 20px 22px;
+  background: rgba(7, 9, 18, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Labels */
+.transform-label {
+  font-size: 0.8rem;
+  opacity: 0.75;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Mockup frame */
+.transform-media {
+  margin-top: 4px;
+}
+
+.transform-mockup-frame {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: radial-gradient(circle at top, #1a1c24 0%, #090a0f 70%);
+}
+
+.transform-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* BEFORE = ขาวดำหม่น ๆ */
+.before-img {
+  filter: grayscale(100%) contrast(0.9) brightness(0.95);
+  transform: scale(1.03);
+}
+
+/* AFTER = สีชัด มีมิติ */
+.after-frame {
+  background: radial-gradient(circle at top left, #b9ff66 0%, #1bffbf 26%, #050b16 70%);
+  box-shadow: 0 18px 45px rgba(6, 255, 167, 0.35);
+}
+
+.after-img {
+  transform: translateY(2px) scale(1.03);
+}
+
+/* Pill บน mockup สี */
+.transform-pill {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  backdrop-filter: blur(10px);
+  background: rgba(5, 8, 16, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* TEXT */
+.transform-body h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.transform-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transform-body li {
+  position: relative;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding-left: 18px;
+  margin-bottom: 4px;
+  opacity: 0.9;
+}
+
+.transform-body li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #b9ff66;
+}
+
+/* ก่อน–หลังให้ mood ต่างกันเล็กน้อย */
+.transform-card.is-before {
+  background: radial-gradient(circle at top, #14151a 0%, #050509 70%);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.transform-card.is-after {
+  background: radial-gradient(circle at top, #0f1724 0%, #050a14 70%);
+  border-color: rgba(185, 255, 102, 0.5);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .transform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transform-card.is-after {
+    order: -1; /* ให้ AFTER ขึ้นก่อนบนมือถือ ถ้าต้องการโชว์ภาพอนาคตนำหน้า */
+  }
+}
+
+@media (max-width: 640px) {
+  .transform-section {
+    padding: 56px 16px;
+  }
+
+  .transform-card {
+    padding: 18px 16px 20px;
+  }
+
+  .transform-body h3 {
+    font-size: 0.98rem;
+  }
+
+  .transform-body li {
+    font-size: 0.86rem;
+  }
+}
+@media (max-width: 900px) {
+  .transform-card.is-after {
+    order: initial;
+  }
+}
+/* ————————————————
+   WHAT YOU GET – GLOBAL WRAPPER
+——————————————— */
+.wy-section {
+  padding: 80px 0;
+  background: #fff;
+  font-family: 'Sukhumvit Set', sans-serif;
+}
+
+.wy-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.wy-head {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.wy-tag {
+  color: #15803d;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.wy-title {
+  font-size: 40px;
+  color: #0f172a;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.wy-sub {
+  color: #475569;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+
+/* ————————————————
+   SCROLL AREA
+——————————————— */
+.wy-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 22px;
+  padding-bottom: 20px;
+  scroll-snap-type: x mandatory;
+}
+
+.wy-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.wy-scroll::-webkit-scrollbar-thumb {
+  background: #d1d1d1;
+  border-radius: 4px;
+}
+
+
+/* ————————————————
+   CARD
+——————————————— */
+.wy-card {
+  min-width: 340px;
+  max-width: 340px;
+  background: #ecfdf5;
+  border-radius: 26px;
+  padding: 0 22px 28px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+  box-shadow: 0 8px 22px rgba(20, 83, 45, 0.07);
+  border: 1px solid #d1fae5;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.wy-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(20, 83, 45, 0.12);
+}
+
+
+/* ————————————————
+   CARD TOP IMAGE (Apple-style banner)
+——————————————— */
+.wy-thumb {
+  width: 100%;
+  height: 130px; 
+  border-radius: 22px;
+  overflow: hidden;
+  background: #d1fae5;
+  margin: 22px 0 18px;
+  box-shadow: 0 5px 14px rgba(16, 185, 129, 0.15);
+}
+
+.wy-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ————————————————
+   TYPOGRAPHY INSIDE CARD
+——————————————— */
+.wy-label {
+  font-size: 18px;
+  font-weight: 600;
+  color: #047857;
+  margin-bottom: 10px;
+}
+
+.wy-card-title {
+  font-size: 22px;
+  line-height: 1.45;
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.wy-card-lead {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #334155;
+  margin-bottom: 14px;
+}
+
+
+/* ————————————————
+   BULLET LIST
+——————————————— */
+.wy-list {
+  padding-left: 20px;
+  margin: 0;
+  color: #0f172a;
+}
+
+.wy-list li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+
+/* ————————————————
+   RESPONSIVE
+——————————————— */
+@media (max-width: 768px) {
+  .wy-title { font-size: 32px; }
+  .wy-sub { font-size: 18px; }
+
+  .wy-card {
+    min-width: 78%;
+    max-width: 78%;
+  }
+
+  .wy-thumb {
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wy-title { font-size: 28px; }
+  .wy-card-title { font-size: 20px; }
+  .wy-card-lead { font-size: 15px; }
+  .wy-thumb { height: 110px; }
+}
+/* ===============================
+   RESPONSIBILITY SPLIT SECTION
+   =============================== */
+
+.rsplit-section {
+  padding: 80px 16px;
+  background: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+}
+
+.rsplit-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* HEAD */
+.rsplit-head {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.rsplit-tag {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #16a34a; /* เขียว */
+  margin-bottom: 8px;
+}
+
+.rsplit-title {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  color: #0b1120; /* ดำเข้ม */
+  margin-bottom: 12px;
+}
+
+.rsplit-sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #374151; /* เทาเข้ม อ่านง่ายขึ้น */
+}
+
+/* TOP NUMBERS */
+.rsplit-metrics {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin: 40px 0 32px;
+  flex-wrap: wrap;
+}
+
+.rsplit-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 160px;
+}
+
+.rsplit-metric-number {
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.rsplit-metric-number--client {
+  color: #4b5563; /* เทาเข้ม */
+}
+
+.rsplit-metric-number--team {
+  color: #16a34a; /* เขียวหลัก */
+}
+
+.rsplit-metric-label {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* BARS WRAPPER */
+.rsplit-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* SINGLE BAR */
+.rsplit-bar {
+  background: #f3f4f6;
+  border-radius: 20px;
+  padding: 18px 18px 20px;
+}
+
+.rsplit-bar-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.rsplit-bar-fill {
+  height: 100%;
+  border-radius: inherit;
+}
+
+/* ความยาวแถบ */
+.rsplit-bar-fill--client {
+  width: 5%;
+  background: #9ca3af; /* เทา */
+}
+
+.rsplit-bar-fill--team {
+  width: 95%;
+  background: #22c55e; /* เขียวสด */
+}
+
+.rsplit-bar-fill--asset {
+  width: 60%;
+  background: #a7f3d0; /* เขียวอ่อน */
+}
+
+/* TEXT INSIDE BAR */
+.rsplit-bar-text {
+  color: #111827;
+}
+
+.rsplit-bar-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.rsplit-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.rsplit-list--compact li + li {
+  margin-top: 2px;
+}
+
+.rsplit-note,
+.rsplit-note-small {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.rsplit-note-small {
+  opacity: 0.9;
+}
+
+/* LAYOUT SHORTER ON DESKTOP */
+@media (min-width: 900px) {
+  .rsplit-bars {
+    gap: 20px;
+  }
+
+  .rsplit-bar {
+    display: grid;
+    grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+    column-gap: 32px;
+    align-items: flex-start;
+  }
+
+  .rsplit-bar-track {
+    grid-column: 1 / -1;
+  }
+}
+/* ยาแรง: เซ็ตฟอนต์ทั้งหน้าเว็บให้เป็น stack เดียวกัน */
+html, body {
+  font-family: "Sukhumvit Set", "Prompt", -apple-system, system-ui,
+               "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ถ้ากลัวว่ามี class อื่นไป override อีก ใช้ชุดนี้เสริมได้ */
+*,
+*::before,
+*::after {
+  font-family: "Sukhumvit Set", "Prompt", -apple-system, system-ui,
+               "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif !important;
+}
+/* หัวข้อหลักของ Responsibility Section */
+.rs-main-headline {
+  font-family: 'Sukhumvit Set', sans-serif !important;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);  /* ใหญ่ตามหน้าจอ */
+  font-weight: 800;
+  color: #0a0a0a;  /* ดำอ่านง่าย */
+  line-height: 1.25;
+  text-align: center;
+  margin: 0 auto 1.2rem;
+}
+
+/* หัวข้อรอง */
+.rs-sub-headline {
+  font-family: 'Sukhumvit Set', sans-serif !important;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  color: #111;
+  line-height: 1.4;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 2.4rem;
+}
+/* ============================
+   FORCE BIG SECTION TITLE
+   For section #what-you-get only
+   ============================ */
+
+#what-you-get .wy-head .wy-title {
+  font-family: 'Sukhumvit Set', 'Kanit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(32px, 6vw, 54px) !important; /* ใหญ่ขึ้นแบบ responsive */
+  line-height: 1.15 !important;
+  color: #0A0A0A !important; /* ดำคมแบบ Apple */
+  margin-bottom: 10px !important;
+}
+
+/* TAG ด้านบน */
+#what-you-get .wy-head .wy-tag {
+  font-family: 'Sukhumvit Set', 'Kanit', 'Inter', sans-serif !important;
+  font-size: clamp(15px, 2.8vw, 20px) !important;
+  font-weight: 600;
+  color: #00A060 !important; /* เขียวเงียบแบบ Apple */
+  margin-bottom: 6px !important;
+}
+
+/* SUBTITLE */
+#what-you-get .wy-head .wy-sub {
+  font-family: 'Sukhumvit Set', 'Kanit', 'Inter', sans-serif !important;
+  font-size: clamp(16px, 3vw, 22px) !important;
+  line-height: 1.45;
+  color: #444 !important; 
+  max-width: 750px;
+  margin: 0 auto 20px auto !important;
+}
+
+/* ลดช่องว่างด้านบนของทั้งหัวข้อ */
+#what-you-get .wy-head {
+  padding-top: 40px !important;   /* จากเดิม ~80–100 */
+  margin-top: -10px !important;
+}
+
+/* เผื่อเจอ device ดื้อฟอนต์ — บังคับแบบยาแรง */
+#what-you-get * {
+  font-family: 'Sukhumvit Set', 'Kanit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+/* ===============================
+   ADD-ONS PRICE BOOSTER (SAFE)
+   =============================== */
+
+#addons .addon-card .price {
+  font-family: 'Sukhumvit Set', 'Kanit', 'Inter', -apple-system, sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(32px, 6vw, 54px) !important;  /* ระดับ h1 */
+  line-height: 1.1 !important;
+  color: #D8FFD0 !important; /* เขียวอ่อนอ่านง่ายบนพื้นเข้ม */
+  margin: 20px 0 10px 0 !important;
+  display: block;
+}
+
+/* ถ้าต้องการให้สีเด่นแบบ Apple Power-Metric */
+#addons .addon-card .price::first-line {
+  background: linear-gradient(90deg, #94FF71 0%, #58CC34 50%, #37B212 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ทำให้การ์ด Add-on เรียบร้อย ไม่พอง */
+#addons .addon-card {
+  padding-top: 25px !important;
+}
+
+/* ปรับ h3 ให้อ่านง่ายขึ้น ไม่โดนราคาแย่งซีนเกินไป */
+#addons .addon-card h3 {
+  font-size: clamp(20px, 3.2vw, 26px);
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #FFFFFF;
 }
