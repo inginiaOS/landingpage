@@ -2778,9 +2778,8 @@ body {
 
 /* Labels */
 .transform-label {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   opacity: 0.75;
-  text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
@@ -3684,5 +3683,533 @@ html, body {
 
   .io-logo {
     width: 280px; /* ย่อโลโก้นิดหน่อยบนจอเล็ก */
+  }
+}
+/* ===== Bridge: DIY / In-house / Agency / Prompt → Brain OS ===== */
+.bridge-section {
+  background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #000 100%);
+  color: #e5e7eb;
+  padding: 64px 16px;
+}
+
+.bridge-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bridge-kicker {
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 10px;
+}
+
+.bridge-line {
+  font-size: clamp(15px, 1.6vw, 17px);
+  color: #d1d5db;
+  margin-bottom: 14px;
+}
+
+.bridge-heading {
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.3;
+  margin-bottom: 14px;
+}
+
+.bridge-heading span {
+  background: linear-gradient(120deg, #5df9a4, #3cf2ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bridge-sub {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #9ca3af;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .bridge-section {
+    padding: 48px 16px;
+  }
+
+  .bridge-line {
+    font-size: 14px;
+  }
+
+  .bridge-sub {
+    font-size: 14px;
+  }
+}
+/* ===== MONTH 1 REASONS – TOGGLE & PANEL ===== */
+
+.month1-reasons-wrapper {
+  max-width: 1200px;
+  margin: 0px auto 0;        /* ชิดกับ section ก่อนหน้า */
+  padding: 0 16px 40px;
+}
+
+/* ปุ่มด้านล่างการ์ดราคา */
+.month1-reasons-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(15, 23, 42, 0.95);
+  color: #e5e7eb;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  transition: background 0.18s ease, transform 0.18s ease,
+              box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.month1-reasons-toggle:hover {
+  background: rgba(15, 23, 42, 1);
+  border-color: rgba(94, 234, 212, 0.7);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.6);
+}
+
+.month1-reasons-toggle-label {
+  white-space: nowrap;
+}
+
+.month1-reasons-toggle-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  transition: transform 0.2s ease, border-color 0.2s ease,
+              background 0.2s ease;
+}
+
+/* ตอนเปิดให้หมุนเป็นกากบาทเล็ก ๆ */
+.month1-reasons-wrapper.is-open .month1-reasons-toggle-icon {
+  transform: rotate(45deg);
+  border-color: rgba(94, 234, 212, 0.9);
+  background: radial-gradient(circle at top left,
+    rgba(45, 212, 191, 0.4),
+    rgba(56, 189, 248, 0.3));
+}
+
+/* PANEL ที่เลื่อนเปิด–ปิด */
+.month1-reasons-panel {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.28s ease;
+  margin-top: 32px;
+  border-radius: 24px;
+  background: radial-gradient(circle at top left,
+              rgba(45, 212, 191, 0.25),
+              transparent 50%),
+              radial-gradient(circle at bottom right,
+              rgba(56, 189, 248, 0.25),
+              transparent 55%),
+              rgba(3, 7, 18, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.9);
+}
+
+/* เนื้อใน panel */
+.month1-reasons-inner {
+  padding: 24px 22px 26px;
+}
+
+.month1-reasons-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #f9fafb;
+  margin-bottom: 16px;
+}
+
+/* แถวการ์ดแบบเลื่อนข้าง */
+.month1-reasons-scroller {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  scroll-snap-type: x mandatory;
+}
+
+.month1-reasons-scroller::-webkit-scrollbar {
+  height: 6px;
+}
+.month1-reasons-scroller::-webkit-scrollbar-track {
+  background: transparent;
+}
+.month1-reasons-scroller::-webkit-scrollbar-thumb {
+  background: rgba(31, 41, 55, 0.9);
+  border-radius: 999px;
+}
+
+/* การ์ดแต่ละใบ */
+.month1-reason-card {
+  min-width: 260px;
+  max-width: 320px;
+  scroll-snap-align: start;
+  padding: 16px 18px 18px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(30, 64, 175, 0.4);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.7);
+}
+
+.month1-reason-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #e5e7eb;
+}
+
+.month1-reason-card .reason-lead {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+.month1-reason-card ul {
+  padding-left: 18px;
+  margin: 0;
+  list-style: disc;
+}
+
+.month1-reason-card li {
+  font-size: 13px;
+  color: #d1d5db;
+  margin-bottom: 4px;
+}
+
+/* ข้อความ footnote */
+.month1-reasons-footnote {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .month1-reasons-toggle {
+    font-size: 15px;
+    padding: 12px 22px;
+  }
+
+  .month1-reasons-inner {
+    padding: 26px 26px 28px;
+  }
+
+  .month1-reasons-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .month1-reason-card {
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .month1-reasons-wrapper {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .month1-reasons-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .month1-reasons-toggle-label {
+    white-space: normal;
+    text-align: left;
+  }
+}
+
+/* Human section – more warm, more human */
+.human-expert .he-eyebrow {
+  font-size: 1rem;
+  color: #c8ffc8;
+  margin-bottom: 1rem;
+}
+
+.human-expert .he-title {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.human-expert .he-sub {
+  font-size: 1.1rem;
+  color: #e8e8e8;
+  line-height: 1.6;
+  max-width: 640px;
+  margin-bottom: 1.8rem;
+}
+
+.human-expert .chip {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 8px 14px;
+  border-radius: 40px;
+  font-size: .9rem;
+  color: #d9fcd9;
+}
+
+/* CTA button */
+.human-expert .btn-primary {
+  background: #A6FF4D;
+  color: #111;
+  padding: 12px 26px;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: 0.25s ease;
+}
+
+.human-expert .btn-primary:hover {
+  background: #cfff78;
+  transform: translateY(-2px);
+}
+
+.human-expert .btn-link {
+  margin-left: 1.4rem;
+  font-size: 1rem;
+  color: #b6ff9c;
+}
+
+/* Glass cards – softer & more human */
+.glass-card h4 {
+  color: #C7FFB0;
+  font-size: 1.25rem;
+  margin-bottom: .5rem;
+}
+
+.glass-card p {
+  color: #e8e8e8;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+/* ========== HUMAN EXPERT SECTION (TEXT + IMAGE แยกกัน) ========== */
+
+.human-expert-section {
+  background: radial-gradient(circle at top, #111922 0%, #050709 52%, #020305 100%);
+  padding: clamp(36px, 7vw, 72px) 16px clamp(32px, 6vw, 60px);
+  color: #eaf3e8;
+}
+
+.human-expert-section .he-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: clamp(32px, 5vw, 56px);
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* LEFT: TEXT */
+.human-expert-section .he-text {
+  flex: 1 1 52%;
+  min-width: 280px;
+}
+
+.human-expert-section .he-eyebrow {
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #b3ffbc;
+  opacity: 0.9;
+  margin: 0 0 10px;
+}
+
+.human-expert-section .he-title {
+  font-size: clamp(26px, 3.6vw, 42px);
+  line-height: 1.2;
+  margin: 0 0 14px;
+  color: #ffffff;
+}
+
+.human-expert-section .he-sub {
+  max-width: 640px;
+  font-size: clamp(15px, 1.7vw, 18px);
+  line-height: 1.7;
+  color: #d7e7d9;
+  margin: 0 0 18px;
+}
+
+/* CHIPS */
+.human-expert-section .he-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.human-expert-section .he-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* CTA BUTTONS */
+.human-expert-section .he-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.human-expert-section .he-btn {
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+              background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.human-expert-section .he-btn-primary {
+  background: linear-gradient(135deg, #b5ff6b, #5bfcb1);
+  color: #03120a;
+  box-shadow: 0 12px 30px rgba(15, 118, 36, 0.55);
+}
+
+.human-expert-section .he-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 40px rgba(15, 118, 36, 0.75);
+}
+
+.human-expert-section .he-btn-ghost {
+  background: transparent;
+  color: #e5fbe9;
+  border-color: rgba(148, 163, 184, 0.6);
+}
+
+.human-expert-section .he-btn-ghost:hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* RIGHT: IMAGE */
+.human-expert-section .he-photo {
+  flex: 1 1 40%;
+  min-width: 260px;
+  display: flex;
+  justify-content: center;
+}
+
+.human-expert-section .he-photo-img {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 26px;
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7);
+}
+
+
+/* ========== GLASS CARDS (HUMAN SUMMARY) ========== */
+
+.human-glass-section {
+  background: #030509;
+  padding: 0 16px clamp(40px, 7vw, 72px);
+}
+
+.human-glass-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 3vw, 28px);
+}
+
+.human-glass-section .glass-card {
+  border-radius: 22px;
+  padding: 18px 20px 20px;
+  background: radial-gradient(circle at top left,
+              rgba(190, 242, 100, 0.2),
+              rgba(22, 163, 74, 0.05) 35%,
+              rgba(15, 23, 42, 0.98) 100%);
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  color: #e5f1e7;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+}
+
+.human-glass-section .glass-card h4 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  color: #eaffb8;
+}
+
+.human-glass-section .glass-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e5f1e7;
+}
+
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 900px) {
+  .human-expert-section .he-container {
+    flex-direction: column-reverse; /* รูปอยู่บน / ตัวหนังสืออยู่ล่าง หรือสลับตามชอบ */
+    align-items: flex-start;
+  }
+
+  .human-expert-section .he-text {
+    width: 100%;
+  }
+
+  .human-expert-section .he-photo {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .human-glass-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .human-expert-section {
+    padding-top: 28px;
+  }
+
+  .human-expert-section .he-title {
+    font-size: 24px;
+  }
+
+  .human-expert-section .he-chips {
+    gap: 6px;
+  }
+
+  .human-expert-section .he-chip {
+    font-size: 12px;
+    padding: 5px 10px;
   }
 }
