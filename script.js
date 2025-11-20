@@ -340,3 +340,48 @@ document.addEventListener('DOMContentLoaded', () => {
     updateLabel();
   });
 });
+document.addEventListener('DOMContentLoaded', function () {
+  const toggleBtn = document.getElementById('toggleInstallReasons');
+  const reasonsSection = document.getElementById('installReasons');
+
+  if (!toggleBtn || !reasonsSection) return;
+
+  const icon = toggleBtn.querySelector('.install-toggle-icon');
+
+  toggleBtn.addEventListener('click', function () {
+    reasonsSection.classList.toggle('is-collapsed');
+    const isOpen = !reasonsSection.classList.contains('is-collapsed');
+
+    toggleBtn.classList.toggle('is-open', isOpen);
+    if (icon) {
+      icon.textContent = isOpen ? '－' : '＋';
+    }
+  });
+});
+// ===== MONTH 1 REASONS TOGGLE (Scoped) =====
+document.addEventListener('DOMContentLoaded', function () {
+  const wrapper = document.querySelector('.month1-reasons-wrapper');
+  if (!wrapper) return;
+
+  const btn   = wrapper.querySelector('.month1-reasons-toggle');
+  const panel = wrapper.querySelector('.month1-reasons-panel');
+
+  if (!btn || !panel) return;
+
+  // ตั้งค่าเริ่มต้น
+  panel.style.maxHeight = '0px';
+
+  btn.addEventListener('click', function () {
+    const isOpen = panel.classList.toggle('is-open');
+
+    if (isOpen) {
+      // ให้สูงเท่าจริง เพื่อให้ transition ทำงาน
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+    } else {
+      panel.style.maxHeight = '0px';
+    }
+
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    wrapper.classList.toggle('is-open', isOpen);
+  });
+});
